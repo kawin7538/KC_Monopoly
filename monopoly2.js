@@ -1280,8 +1280,8 @@ function popup(HTML, action, option) {
 
 function updatePosition() {
 	// Reset borders
-	document.getElementById("jail").style.border = "1px solid black";
-	document.getElementById("jailpositionholder").innerHTML = "";
+	//document.getElementById("jail").style.border = "1px solid black";
+	//document.getElementById("jailpositionholder").innerHTML = "";
 	for (var i = 0; i < 20; i++) {
 		document.getElementById("cell" + i).style.border = "1px solid black";
 		document.getElementById("cell" + i + "positionholder").innerHTML = "";
@@ -2316,7 +2316,7 @@ function land(increasedRent) {
 		var rent;
 
 		// Railroads
-		if (p.position == 5 || p.position == 15 || p.position == 25 || p.position == 35) {
+		/*if (p.position == 5 || p.position == 15 || p.position == 25 || p.position == 35) {
 			if (increasedRent) {
 				rent = 25;
 			} else {
@@ -2336,7 +2336,7 @@ function land(increasedRent) {
 				rent *= 2;
 			}
 
-		} else if (p.position === 12) {
+		} else */if (p.position === 12) {
 			if (increasedRent || square[28].owner == s.owner) {
 				rent = (die1 + die2) * 10;
 			} else {
@@ -2411,7 +2411,7 @@ function land(increasedRent) {
 		popup(p.AI.alertList, chanceCommunityChest);
 		p.AI.alertList = "";
 	} else {
-		chanceCommunityChest();
+		//chanceCommunityChest();
 	}
 }
 
@@ -2524,8 +2524,8 @@ function roll() {
 		p.position += die1 + die2;
 
 		// Collect $200 salary as you pass GO
-		if (p.position >= 40) {
-			p.position -= 40;
+		if (p.position >= 20) {
+			p.position -= 20;
 			p.money += 200;
 			addAlert(p.name + " collected a $200 salary for passing GO.");
 		}
@@ -2817,8 +2817,8 @@ window.onload = function() {
 
 	// Add images to enlarges.
 	document.getElementById("enlarge0token").innerHTML += '<img src="images/arrow_icon.png" height="40" width="136" alt="" />';
-	document.getElementById("enlarge20price").innerHTML += "<img src='images/free_parking_icon.png' height='80' width='72' alt='' style='position: relative; top: -20px;' />";
-	document.getElementById("enlarge38token").innerHTML += '<img src="images/tax_icon.png" height="60" width="70" alt="" style="position: relative; top: -20px;" />';
+	//document.getElementById("enlarge20price").innerHTML += "<img src='images/free_parking_icon.png' height='80' width='72' alt='' style='position: relative; top: -20px;' />";
+	//document.getElementById("enlarge38token").innerHTML += '<img src="images/tax_icon.png" height="60" width="70" alt="" style="position: relative; top: -20px;" />';
 
 	corrections();
 
@@ -2826,11 +2826,11 @@ window.onload = function() {
 	$("<div>", {id: "jailpositionholder" }).appendTo("#jail");
 	$("<span>").text("Jail").appendTo("#jail");
 
-	document.getElementById("jail").enlargeId = "enlarge40";
+	//document.getElementById("jail").enlargeId = "enlarge40";
 
-	document.getElementById("enlarge-wrap").innerHTML += "<div id='enlarge40' class='enlarge'><div id='enlarge40color' class='enlarge-color'></div><br /><div id='enlarge40name' class='enlarge-name'>Jail</div><br /><div id='enlarge40price' class='enlarge-price'><img src='images/jake_icon.png' height='80' width='80' alt='' style='position: relative; top: -20px;' /></div><br /><div id='enlarge40token' class='enlarge-token'></div></div>";
+	//document.getElementById("enlarge-wrap").innerHTML += "<div id='enlarge40' class='enlarge'><div id='enlarge40color' class='enlarge-color'></div><br /><div id='enlarge40name' class='enlarge-name'>Jail</div><br /><div id='enlarge40price' class='enlarge-price'><img src='images/jake_icon.png' height='80' width='80' alt='' style='position: relative; top: -20px;' /></div><br /><div id='enlarge40token' class='enlarge-token'></div></div>";
 
-	document.getElementById("enlarge40name").innerHTML = "Jail";
+	//document.getElementById("enlarge40name").innerHTML = "Jail";
 
 	// Create event handlers for hovering and draging.
 
