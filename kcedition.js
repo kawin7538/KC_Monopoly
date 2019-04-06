@@ -70,6 +70,7 @@ function citytax() {
 
 var square = [];
 
+<<<<<<< HEAD
 square[0] = new Square("START", "COLLECT KC2000 SALARY AS YOU PASS.", "#FFFFFF");
 square[1] = new Square("Peking", "KC500", "#54B948", 500, 3, 2, 10, 30, 90, 160, 250);
 square[2] = new Square("Taipei", "KC700", "#54B948", 700, 3, 2, 10, 30, 90, 160, 250);
@@ -90,6 +91,28 @@ square[16] = new Square("London", "KC7900", "#ED2939", 7900, 6, 14, 70, 200, 550
 square[17] = new Square("Paris", "KC8000", "#ED2939", 8000, 6, 14, 70, 200, 550, 750, 950);
 square[18] = new Square("New York", "KC9300", "#ED2939", 9300, 6, 14, 70, 200, 550, 750, 950);
 square[19] = new Square("Bangkok", "KC10100", "#ED2939", 10100, 6, 16, 80, 220, 600, 800, 1000);
+=======
+square[0] = new Square("START", "COLLECT $200 SALARY AS YOU PASS.", "#FFFFFF");
+square[1] = new Square("Mediterranean Avenue", "$60", "#8B4513", 60, 3, 2, 10, 30, 90, 160, 250);
+square[2] = new Square("Mediterranean Avenueaosfosdhf", "$60", "#8B4513", 60, 3, 2, 10, 30, 90, 160, 250);
+square[3] = new Square("Baltic Avenue", "$60", "#8B4513", 60, 3, 4, 20, 60, 180, 320, 450);
+square[4] = new Square("Baltic Avenueฟหกดฟหกด", "$60", "#8B4513", 60, 3, 4, 20, 60, 180, 320, 450);
+square[5] = new Square("X2", "ได้เงินบริจาคเป็น 2 เท่า", "#000000", 100, 4, 6, 30, 90, 270, 400, 550);
+square[6] = new Square("Oriental Avenue", "$100", "#87CEEB", 100, 4, 6, 30, 90, 270, 400, 550);
+square[7] = new Square("Vermont Avenueaisjdfijasidf", "$100", "#87CEEB", 100, 4, 6, 30, 90, 270, 400, 550);
+square[8] = new Square("Vermont Avenue", "$100", "#87CEEB", 100, 4, 6, 30, 90, 270, 400, 550);
+square[9] = new Square("Connecticut Avenue", "$120", "#87CEEB", 120, 4, 8, 40, 100, 300, 450, 600);
+square[10] = new Square("Just Visiting", "", "#FFFFFF");
+square[11] = new Square("St. Charles Place", "$140", "#FF0080", 140, 5, 10, 50, 150, 450, 625, 750);
+square[12] = new Square("States Avenueasdjfiasjdfioj", "$140", "#FF0080", 140, 5, 10, 50, 150, 450, 625, 750);
+square[13] = new Square("States Avenue", "$140", "#FF0080", 140, 5, 10, 50, 150, 450, 625, 750);
+square[14] = new Square("Virginia Avenue", "$160", "#FF0080", 160, 5, 12, 60, 180, 500, 700, 900);
+square[15] = new Square("ทอยใหม่จ้า", "ทอยใหม่จ้า", "#FFFFFF");
+square[16] = new Square("St. James Place", "$180", "#FFA500", 180, 6, 14, 70, 200, 550, 750, 950);
+square[17] = new Square("Tennessee Avenueasdjfiajsdfi", "$180", "#FFA500", 180, 6, 14, 70, 200, 550, 750, 950);
+square[18] = new Square("Tennessee Avenue", "$180", "#FFA500", 180, 6, 14, 70, 200, 550, 750, 950);
+square[19] = new Square("New York Avenue", "$200", "#FFA500", 200, 6, 16, 80, 220, 600, 800, 1000);
+>>>>>>> 808f9d547b6515b548bf3cf3677d4256a3aadbb1
 
 var communityChestCards = [];
 var chanceCards = [];
