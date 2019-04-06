@@ -2336,7 +2336,7 @@ function land(increasedRent) {
 				rent *= 2;
 			}
 
-		} else */if (p.position === 12) {
+		} else if (p.position === 12) {
 			if (increasedRent || square[28].owner == s.owner) {
 				rent = (die1 + die2) * 10;
 			} else {
@@ -2350,7 +2350,7 @@ function land(increasedRent) {
 				rent = (die1 + die2) * 4;
 			}
 
-		} else {
+		} else */{
 
 			for (var i = 0; i < 20; i++) {
 				sq = square[i];
@@ -2380,9 +2380,9 @@ function land(increasedRent) {
 	}
 
 	// City Tax
-	if (p.position === 4) {
+	/*if (p.position === 4) {
 		citytax();
-	}
+	}*/
 
 	// Go to jail. Go directly to Jail. Do not pass GO. Do not collect $200.
 	if (p.position === 30) {
@@ -2415,7 +2415,7 @@ function land(increasedRent) {
 	}
 }
 
-function roll() {
+/*function roll() {
 	var p = player[turn];
 
 	$("#option").hide();
@@ -2532,6 +2532,46 @@ function roll() {
 
 		land();
 	}
+}*/
+
+function roll() {
+	var p = player[turn];
+
+	$("#option").hide();
+	$("#buy").show();
+	$("#manage").hide();
+
+	document.getElementById("nextbutton").value = "End turn";
+	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
+
+	game.rollDice();
+	var die1 = game.getDie(1);
+	var die2 = game.getDie(2);
+
+	doublecount++;
+	addAlert(p.name + " rolled " + (die1 + die2) + ".");
+
+	document.getElementById("nextbutton").value = "End turn";
+	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
+	doublecount = 0;
+
+	updatePosition();
+	updateMoney();
+	updateOwned();
+
+	updateDice(die1, die2);
+
+	// Move player
+	p.position += die1 + die2;
+
+	// Collect $200 salary as you pass GO
+	if (p.position >= 20) {
+		p.position -= 20;
+		p.money += 200;
+		addAlert(p.name + " collected a $200 salary for passing GO.");
+	}
+
+	land();
 }
 
 function play() {
