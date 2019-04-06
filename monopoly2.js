@@ -1809,6 +1809,8 @@ function gotojail() {
 	p.jail = true;
 	doublecount = 0;
 
+	$("#choosedice").hide();
+
 	document.getElementById("nextbutton").value = "End turn";
 	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
 
@@ -2384,6 +2386,7 @@ function land(increasedRent) {
 		citytax();
 	}*/
 
+
 	// Go to jail. Go directly to Jail. Do not pass GO. Do not collect $200.
 	if (p.position === 30) {
 		updateMoney();
@@ -2551,9 +2554,7 @@ function roll() {
 	doublecount++;
 	addAlert(p.name + " rolled " + (die1 + die2) + ".");
 
-	document.getElementById("nextbutton").value = "End turn";
-	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
-	doublecount = 0;
+	//doublecount = 0;
 
 	updatePosition();
 	updateMoney();
@@ -2562,13 +2563,29 @@ function roll() {
 	updateDice(die1, die2);
 
 	// Move player
-	p.position += die1 + die2;
+	//p.position += die1 + die2;
+	var dice = document.getElementById("choosedice").value;
+	//document.write(dice);
+	p.position += parseInt(dice);
+	$("#nextbutton").on("click", function () {
+	    $('#choosedice option').prop('selected', function() {
+	        return this.defaultSelected;
+	    });
+	});
 
 	// Collect $200 salary as you pass GO
 	if (p.position >= 20) {
 		p.position -= 20;
 		p.money += 200;
 		addAlert(p.name + " collected a $200 salary for passing GO.");
+	}
+	if(p.position !== 15){
+		doublecount=0
+	}	
+	else{
+		document.getElementById("nextbutton").value = "Roll Again";
+		document.getElementById("nextbutton").title = "Roll Again and advance to the next player.";
+		addAlert(p.name + " มีสิทธิ์ทอยใหม่อีกรอบจ้า ");
 	}
 
 	land();
@@ -2595,7 +2612,7 @@ function play() {
 	p.pay(0, p.creditor);
 
 	$("#landed, #option, #manage").hide();
-	$("#board, #control, #moneybar, #viewstats, #buy").show();
+	$("#board, #control, #moneybar, #viewstats, #buy, #choosedice").show();
 
 	doublecount = 0;
 	if (p.human) {
