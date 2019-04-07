@@ -1,7 +1,6 @@
-# monopoly
+# Kmutt Chorus Monopoly
 
-A JavaScript/HTML/CSS Monopoly implementation with full game play. Supports two-eight players.
+Base model from [Intrepidcoder](https://github.com/intrepidcoder/monopoly)
 
-Play online at [http://www.intrepidcoder.com/projects/monopoly/](http://www.intrepidcoder.com/projects/monopoly/).
-
-Includes an experimental capability to play against an AI. A test AI for demonstration purposes is included.
+Use for Kmutt Chorus The Crazy Rich Concert
+27Apr2019
