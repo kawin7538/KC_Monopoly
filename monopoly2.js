@@ -1111,7 +1111,7 @@ function Player(name, color) {
 	this.name = name;
 	this.color = color;
 	this.position = 0;
-	this.money = 1500;
+	this.money = 2000;
 	this.creditor = -1;
 	this.jail = false;
 	this.jailroll = 0;
