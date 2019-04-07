@@ -1809,8 +1809,6 @@ function gotojail() {
 	p.jail = true;
 	doublecount = 0;
 
-	$("#choosedice").hide();
-
 	document.getElementById("nextbutton").value = "End turn";
 	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
 
@@ -2543,6 +2541,7 @@ function roll() {
 	$("#option").hide();
 	$("#buy").show();
 	$("#manage").hide();
+	$("#choosedice").hide();
 
 	document.getElementById("nextbutton").value = "End turn";
 	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
@@ -2565,13 +2564,20 @@ function roll() {
 	// Move player
 	//p.position += die1 + die2;
 	var dice = document.getElementById("choosedice").value;
-	//document.write(dice);
-	p.position += parseInt(dice);
 	$("#nextbutton").on("click", function () {
 	    $('#choosedice option').prop('selected', function() {
 	        return this.defaultSelected;
 	    });
 	});
+	if(parseInt(dice)===0){
+		$("#choosedice").show()
+		document.getElementById("nextbutton").value = "Roll Dice";
+		document.getElementById("nextbutton").title = "Roll the dice and move your token accordingly.";
+		//land();
+		return ;
+	}
+	//document.write(dice);
+	p.position += parseInt(dice);
 
 	// Collect $200 salary as you pass GO
 	if (p.position >= 20) {
@@ -2585,6 +2591,7 @@ function roll() {
 	else{
 		document.getElementById("nextbutton").value = "Roll Again";
 		document.getElementById("nextbutton").title = "Roll Again and advance to the next player.";
+		$("#choosedice").show();
 		addAlert(p.name + " มีสิทธิ์ทอยใหม่อีกรอบจ้า ");
 	}
 
@@ -2592,9 +2599,9 @@ function roll() {
 }
 
 function play() {
-	if (game.auction()) {
+	/*if (game.auction()) {
 		return;
-	}
+	}*/
 
 	turn++;
 	if (turn > pcount) {
@@ -2612,7 +2619,8 @@ function play() {
 	p.pay(0, p.creditor);
 
 	$("#landed, #option, #manage").hide();
-	$("#board, #control, #moneybar, #viewstats, #buy, #choosedice").show();
+	$("#board, #control, #moneybar, #viewstats, #buy").show();
+	$(".choosedice").show();
 
 	doublecount = 0;
 	if (p.human) {
