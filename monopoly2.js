@@ -2547,11 +2547,11 @@ function roll() {
 	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
 
 	game.rollDice();
-	var die1 = game.getDie(1);
-	var die2 = game.getDie(2);
+	//var die1 = game.getDie(1);
+	//var die2 = game.getDie(2);
 
 	doublecount++;
-	addAlert(p.name + " rolled " + (die1 + die2) + ".");
+	//addAlert(p.name + " rolled " + (die1 + die2) + ".");
 
 	//doublecount = 0;
 
@@ -2559,7 +2559,7 @@ function roll() {
 	updateMoney();
 	updateOwned();
 
-	updateDice(die1, die2);
+	//updateDice(die1, die2);
 
 	// Move player
 	//p.position += die1 + die2;
@@ -2569,7 +2569,7 @@ function roll() {
 	        return this.defaultSelected;
 	    });
 	});
-	if(parseInt(dice)===0){
+	if(parseInt(dice) === 0){
 		$("#choosedice").show()
 		document.getElementById("nextbutton").value = "Roll Dice";
 		document.getElementById("nextbutton").title = "Roll the dice and move your token accordingly.";
