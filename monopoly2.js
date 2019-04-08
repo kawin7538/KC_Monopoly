@@ -3105,14 +3105,17 @@ function sing_phase(position){
 	}*/
 	console.log(position);
 	if(position !== 15){
-		modal.style.display = "block" ;
+		//modal.style.display = "block" ;
+		//modal.fadeIn(400);
+		$("#sing-phase").fadeIn(250);
 	}
 	document.getElementById("nextbutton2").value = "End Sing";
 	document.getElementById("nextbutton2").title = "Chick Here to get donation.";
 	document.getElementById("nextbutton2").focus();
 
 	btn2.onclick = function(){
-		modal.style.display = "none";
+		//modal.style.display = "none";
+		$("#sing-phase").fadeOut(250);
 	}
 
 }
