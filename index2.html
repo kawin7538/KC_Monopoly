@@ -285,10 +285,10 @@
 	<div id="setup">
 		<div style="margin-bottom: 20px;">
 			Select number of players.
-			<select id="playernumber" title="Select the number of players for the game.">
-				<option>2</option>
+			<select id="playernumber" title="Select the number of players for the game." disabled>
+				<option selected="selected">2</option>
 				<option>3</option>
-				<option selected="selected">4</option>
+				<option>4</option>
 				<option>5</option>
 				<option>6</option>
 				<option>7</option>
@@ -297,7 +297,7 @@
 		</div>
 
 		<div id="player1input" class="player-input">
-			Player 1: <input type="text" id="player1name" title="Player name" maxlength="16" value="Player 1" />
+			Player 1: <input type="text" id="player1name" title="Player name" maxlength="16" value="P'Tod" />
 			<select id="player1color" title="Player color">
 				<option style="color: aqua;">Aqua</option>
 				<option style="color: black;">Black</option>
@@ -316,14 +316,14 @@
 				<option style="color: teal;">Teal</option>
 				<option selected="selected" style="color: yellow;">Yellow</option>
 			</select>
-			<select id="player1ai" title="Choose whether this player is controled by a human or by the computer." onclick="document.getElementById('player1name').disabled = this.value !== '0';">
+			<select id="player1ai" title="Choose whether this player is controled by a human or by the computer." onclick="document.getElementById('player1name').disabled = this.value !== '0';" disabled>
 				<option value="0" selected="selected">Human</option>
 				<option value="1">AI (Test)</option>
 			</select>
 		</div>
 
 		<div id="player2input" class="player-input">
-			Player 2: <input type="text" id="player2name" title="Player name" maxlength="16" value="Player 2" />
+			Player 2: <input type="text" id="player2name" title="Player name" maxlength="16" value="P'Phoon" />
 			<select id="player2color" title="Player color">
 				<option style="color: aqua;">Aqua</option>
 				<option style="color: black;">Black</option>
@@ -342,7 +342,7 @@
 				<option style="color: teal;">Teal</option>
 				<option style="color: yellow;">Yellow</option>
 			</select>
-			<select id="player2ai" title="Choose whether this player is controled by a human or by the computer." onclick="document.getElementById('player2name').disabled = this.value !== '0';">
+			<select id="player2ai" title="Choose whether this player is controled by a human or by the computer." onclick="document.getElementById('player2name').disabled = this.value !== '0';" disabled>
 				<option value="0" selected="selected">Human</option>
 				<option value="1">AI (Test)</option>
 			</select>
@@ -616,6 +616,16 @@
 				</td>
 			</tr>
 		</table>
+	</div>
+
+	<div id="sing-phase" class="modal">
+
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <p>Donation SYstem</p>
+		    <input type="button" id="nextbutton2" title="Roll the dice and move your token accordingly." value="Roll Dice"/>
+		  </div>
+
 	</div>
 
 </body>

@@ -2,6 +2,7 @@ function Game() {
 	var die1;
 	var die2;
 	var areDiceRolled = false;
+	var scorenow=0;
 
 	var auctionQueue = [];
 	var highestbidder;
@@ -2535,7 +2536,8 @@ function land(increasedRent) {
 	}
 }*/
 
-function roll() {
+function roll(position) {
+
 	var p = player[turn];
 
 	$("#option").hide();
@@ -2543,8 +2545,8 @@ function roll() {
 	$("#manage").hide();
 	$("#choosedice").hide();
 
-	document.getElementById("nextbutton").value = "End turn";
-	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
+	//document.getElementById("nextbutton").value = "End turn";
+	//document.getElementById("nextbutton").title = "End turn and advance to the next player.";
 
 	game.rollDice();
 	//var die1 = game.getDie(1);
@@ -2586,7 +2588,13 @@ function roll() {
 		addAlert(p.name + " collected a $200 salary for passing GO.");
 	}
 	if(p.position !== 15){
-		doublecount=0
+		sing_phase(p.position);
+		console.log(p.position);
+	}
+	if(p.position !== 15){
+		doublecount=0;
+		document.getElementById("nextbutton").value = "End turn";
+		document.getElementById("nextbutton").title = "End turn and advance to the next player.";
 	}	
 	else{
 		document.getElementById("nextbutton").value = "Roll Again";
@@ -3077,3 +3085,34 @@ window.onload = function() {
 
 
 };
+
+
+function sing_phase(position){
+
+	var btn = document.getElementById("nextbutton");
+	// Get the modal
+	var modal = document.getElementById('sing-phase');
+
+	// Get the button that opens the modal
+	var btn2 = document.getElementById("nextbutton2");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks on the button, open the modal 
+	/*btn.onclick = function() {
+	  modal.style.display = "block";
+	}*/
+	console.log(position);
+	if(position !== 15){
+		modal.style.display = "block" ;
+	}
+	document.getElementById("nextbutton2").value = "End Sing";
+	document.getElementById("nextbutton2").title = "Chick Here to get donation.";
+	document.getElementById("nextbutton2").focus();
+
+	btn2.onclick = function(){
+		modal.style.display = "none";
+	}
+
+}
