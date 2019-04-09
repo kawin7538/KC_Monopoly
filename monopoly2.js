@@ -1296,7 +1296,7 @@ function updatePosition() {
 		left = 0;
 		top = 0;
 
-		for (var y = turn; y <= pcount; y++) {
+		/*for (var y = turn; y <= pcount; y++) {
 
 			if (player[y].position == x && !player[y].jail) {
 
@@ -1311,6 +1311,16 @@ function updatePosition() {
 
 		for (var y = 1; y < turn; y++) {
 
+			if (player[y].position == x && !player[y].jail) {
+				document.getElementById("cell" + x + "positionholder").innerHTML += "<div class='cell-position' title='" + player[y].name + "' style='background-color: " + player[y].color + "; left: " + left + "px; top: " + top + "px;'></div>";
+				if (left == 36) {
+					left = 0;
+					top = 12;
+				} else
+					left += 12;
+			}
+		}*/
+		for (var y = 1; y <= pcount; y++) {
 			if (player[y].position == x && !player[y].jail) {
 				document.getElementById("cell" + x + "positionholder").innerHTML += "<div class='cell-position' title='" + player[y].name + "' style='background-color: " + player[y].color + "; left: " + left + "px; top: " + top + "px;'></div>";
 				if (left == 36) {
@@ -2560,7 +2570,6 @@ function roll(position) {
 	updatePosition();
 	updateMoney();
 	updateOwned();
-
 	//updateDice(die1, die2);
 
 	// Move player
@@ -2579,18 +2588,52 @@ function roll(position) {
 		return ;
 	}
 	//document.write(dice);
-	p.position += parseInt(dice);
+	new_position = parseInt(dice) + p.position;
+	if(new_position >=20){
+		new_position-=20;
+	}
 
 	// Collect $200 salary as you pass GO
-	if (p.position >= 20) {
+	/*if (p.position >= 20) {
 		p.position -= 20;
 		p.money += 200;
 		addAlert(p.name + " collected a $200 salary for passing GO.");
+	}*/
+	var temp111=setInterval(pong,200);
+	function pong(){
+		if(p.position === new_position){
+			clearInterval(temp111);
+		}
+		// Collect $200 salary as you pass GO
+		if (p.position >= 20) {
+			p.position -= 20;
+			p.money += 200;
+			addAlert(p.name + " collected a $200 salary for passing GO.");
+		}
+		p.position+=1;
+		land();
+		updatePosition();
+		if(p.position === new_position){
+			deed_phase(p.position);
+			clearInterval(temp111);
+		}
 	}
-	deed_phase(p.position);
+	/*while(p.position !== new_position){
+
+		// Collect $200 salary as you pass GO
+		if (p.position >= 20) {
+			p.position -= 20;
+			p.money += 200;
+			addAlert(p.name + " collected a $200 salary for passing GO.");
+		}
+		p.position+=1;
+		land();
+		updatePosition();
+	}*/
+	// deed_phase(p.position);
 	if(p.position !== 15){
 		sing_phase(p.position);
-		console.log(p.position);
+		//console.log(p.position);
 	}
 	if(p.position !== 15){
 		doublecount=0;
@@ -3089,7 +3132,7 @@ window.onload = function() {
 
 function sing_phase(position){
 
-	$("#sing-phase").delay(6000);
+	$("#sing-phase").delay(7000);
 
 	var btn = document.getElementById("nextbutton");
 	// Get the modal
@@ -3105,7 +3148,7 @@ function sing_phase(position){
 	/*btn.onclick = function() {
 	  modal.style.display = "block";
 	}*/
-	console.log(position);
+	//console.log(position);
 	if(position !== 15){
 		//modal.style.display = "block" ;
 		//modal.fadeIn(400);
