@@ -2,6 +2,7 @@ function Game() {
 	var die1;
 	var die2;
 	var areDiceRolled = false;
+	var scorenow=0;
 
 	var auctionQueue = [];
 	var highestbidder;
@@ -1111,7 +1112,7 @@ function Player(name, color) {
 	this.name = name;
 	this.color = color;
 	this.position = 0;
-	this.money = 1500;
+	this.money = 2000;
 	this.creditor = -1;
 	this.jail = false;
 	this.jailroll = 0;
@@ -1808,8 +1809,6 @@ function gotojail() {
 
 	p.jail = true;
 	doublecount = 0;
-
-	$("#choosedice").hide();
 
 	document.getElementById("nextbutton").value = "End turn";
 	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
@@ -2537,22 +2536,24 @@ function land(increasedRent) {
 	}
 }*/
 
-function roll() {
+function roll(position) {
+
 	var p = player[turn];
 
 	$("#option").hide();
 	$("#buy").show();
 	$("#manage").hide();
+	$("#choosedice").hide();
 
-	document.getElementById("nextbutton").value = "End turn";
-	document.getElementById("nextbutton").title = "End turn and advance to the next player.";
+	//document.getElementById("nextbutton").value = "End turn";
+	//document.getElementById("nextbutton").title = "End turn and advance to the next player.";
 
 	game.rollDice();
-	var die1 = game.getDie(1);
-	var die2 = game.getDie(2);
+	//var die1 = game.getDie(1);
+	//var die2 = game.getDie(2);
 
 	doublecount++;
-	addAlert(p.name + " rolled " + (die1 + die2) + ".");
+	//addAlert(p.name + " rolled " + (die1 + die2) + ".");
 
 	//doublecount = 0;
 
@@ -2560,18 +2561,25 @@ function roll() {
 	updateMoney();
 	updateOwned();
 
-	updateDice(die1, die2);
+	//updateDice(die1, die2);
 
 	// Move player
 	//p.position += die1 + die2;
 	var dice = document.getElementById("choosedice").value;
-	//document.write(dice);
-	p.position += parseInt(dice);
 	$("#nextbutton").on("click", function () {
 	    $('#choosedice option').prop('selected', function() {
 	        return this.defaultSelected;
 	    });
 	});
+	if(parseInt(dice) === 0){
+		$("#choosedice").show()
+		document.getElementById("nextbutton").value = "Roll Dice";
+		document.getElementById("nextbutton").title = "Roll the dice and move your token accordingly.";
+		//land();
+		return ;
+	}
+	//document.write(dice);
+	p.position += parseInt(dice);
 
 	// Collect $200 salary as you pass GO
 	if (p.position >= 20) {
@@ -2579,22 +2587,29 @@ function roll() {
 		p.money += 200;
 		addAlert(p.name + " collected a $200 salary for passing GO.");
 	}
+	deed_phase(p.position);
 	if(p.position !== 15){
-		doublecount=0
+		sing_phase(p.position);
+		console.log(p.position);
+	}
+	if(p.position !== 15){
+		doublecount=0;
+		document.getElementById("nextbutton").value = "End turn";
+		document.getElementById("nextbutton").title = "End turn and advance to the next player.";
 	}	
 	else{
 		document.getElementById("nextbutton").value = "Roll Again";
 		document.getElementById("nextbutton").title = "Roll Again and advance to the next player.";
+		$("#choosedice").show();
 		addAlert(p.name + " มีสิทธิ์ทอยใหม่อีกรอบจ้า ");
 	}
-
 	land();
 }
 
 function play() {
-	if (game.auction()) {
+	/*if (game.auction()) {
 		return;
-	}
+	}*/
 
 	turn++;
 	if (turn > pcount) {
@@ -2612,7 +2627,8 @@ function play() {
 	p.pay(0, p.creditor);
 
 	$("#landed, #option, #manage").hide();
-	$("#board, #control, #moneybar, #viewstats, #buy, #choosedice").show();
+	$("#board, #control, #moneybar, #viewstats, #buy").show();
+	$(".choosedice").show();
 
 	doublecount = 0;
 	if (p.human) {
@@ -3069,3 +3085,75 @@ window.onload = function() {
 
 
 };
+
+
+function sing_phase(position){
+
+	$("#sing-phase").delay(6000);
+
+	var btn = document.getElementById("nextbutton");
+	// Get the modal
+	var modal = document.getElementById('sing-phase');
+
+	// Get the button that opens the modal
+	var btn2 = document.getElementById("nextbutton2");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	// When the user clicks on the button, open the modal 
+	/*btn.onclick = function() {
+	  modal.style.display = "block";
+	}*/
+	console.log(position);
+	if(position !== 15){
+		//modal.style.display = "block" ;
+		//modal.fadeIn(400);
+		$("#sing-phase").fadeIn(250);
+	}
+	$("#nextbutton2").show();
+	document.getElementById("sing-phase-text").textContent="ร้องเพลงอีกซิ";
+	document.getElementById("nextbutton2").value = "End Sing";
+	document.getElementById("nextbutton2").title = "Chick Here to get donation.";
+	document.getElementById("nextbutton2").focus();
+
+	btn2.onclick = function(){
+		//modal.style.display = "none";
+		document.getElementById("sing-phase-text").textContent="Donation Money Here and Now!!!";
+		$("#nextbutton2").hide();
+		$("#sing-phase").delay(5000).fadeOut(250);
+	}
+
+}
+
+function deed_phase(position){
+	var sq=square[position];
+	$("#popup-deed").fadeIn(250);
+	document.getElementById("popup-deed-name").textContent=sq.name;
+	document.getElementById("popup-deed-header").style.backgroundColor=sq.color;
+	//console.log(sq.name);
+	//console.log(document.getElementById("popup-deed-name").textContent);
+	if(position === 0 || position === 5 || position === 10 || position === 15){
+		$(".popup-deed-special").show();
+		$(".popup-deed-normal").hide();
+		document.getElementById("popup-deed-special-content").textContent=sq.pricetext;
+		$("#popup-deed-special-content").show();
+	}
+	else{
+		$(".popup-deed-special").hide();
+		$(".popup-deed-normal").show();
+		$("#popup-deed-special-content").hide();
+		document.getElementById("popup-deed-baserent").textContent = sq.baserent;
+		document.getElementById("popup-deed-rent1").textContent = sq.rent1;
+		document.getElementById("popup-deed-rent2").textContent = sq.rent2;
+		document.getElementById("popup-deed-rent3").textContent = sq.rent3;
+		document.getElementById("popup-deed-rent4").textContent = sq.rent4;
+		document.getElementById("popup-deed-rent5").textContent = sq.rent5;
+		document.getElementById("popup-deed-mortgage").textContent = (sq.price / 2);
+		document.getElementById("popup-deed-houseprice").textContent = sq.houseprice;
+		document.getElementById("popup-deed-hotelprice").textContent = sq.houseprice;
+		
+	}
+	$("#popup-deed").delay(5000);
+	$("#popup-deed").fadeOut(250);
+}

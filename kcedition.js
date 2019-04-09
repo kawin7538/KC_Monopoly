@@ -35,7 +35,7 @@ function Card(text, action) {
 }
 
 function corrections() {
-	document.getElementById("cell1name").textContent = "Mediter-ranean Avenue";
+	//document.getElementById("cell1name").textContent = "Mediter-ranean Avenue";
 
 	// Add images to enlarges.
 	//document.getElementById("enlarge5token").innerHTML += '<img src="images/train_icon.png" height="60" width="65" alt="" style="position: relative; bottom: 20px;" />';
@@ -70,13 +70,13 @@ function citytax() {
 
 var square = [];
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
 square[0] = new Square("START", "COLLECT KC2000 SALARY AS YOU PASS.", "#FFFFFF");
 square[1] = new Square("Peking", "KC500", "#54B948", 500, 3, 2, 10, 30, 90, 160, 250);
 square[2] = new Square("Taipei", "KC700", "#54B948", 700, 3, 2, 10, 30, 90, 160, 250);
 square[3] = new Square("New Delhi", "KC1300", "#54B948", 1300, 3, 4, 20, 60, 180, 320, 450);
 square[4] = new Square("Seoul", "KC2200", "#54B948", 2200, 3, 4, 20, 60, 180, 320, 450);
-square[5] = new Square("X2", "Chance for X2 extra money!", "#000000", 100, 4, 6, 30, 90, 270, 400, 550);
+square[5] = new Square("X2", "Chance for X2 extra money!", "#FFFFFF");
 square[6] = new Square("Tokyo", "KC3000", "#27AEE3", 3000, 4, 6, 30, 90, 270, 400, 550);
 square[7] = new Square("Singapore", "KC3100", "#27AEE3", 3100, 4, 6, 30, 90, 270, 400, 550);
 square[8] = new Square("Berlin", "KC3400", "#27AEE3", 3400, 4, 6, 30, 90, 270, 400, 550);
@@ -86,12 +86,13 @@ square[11] = new Square("Geneva", "KC4300", "#FEBB1B", 4300, 5, 10, 50, 150, 450
 square[12] = new Square("Rome", "KC4500", "#FEBB1B", 4500, 5, 10, 50, 150, 450, 625, 750);
 square[13] = new Square("São Paulo", "KC5000", "#FEBB1B", 5000, 5, 10, 50, 150, 450, 625, 750);
 square[14] = new Square("Hawaii", "KC6200", "#FEBB1B", 6200, 5, 12, 60, 180, 500, 700, 900);
-square[15] = new Square("Roll a Dice", "Roll a dice again!", "#FFFFFF", 180, 6, 14, 70, 200, 550, 750, 950);
+square[15] = new Square("Roll a Dice", "Roll a dice again!", "#FFFFFF");
 square[16] = new Square("London", "KC7900", "#ED2939", 7900, 6, 14, 70, 200, 550, 750, 950);
 square[17] = new Square("Paris", "KC8000", "#ED2939", 8000, 6, 14, 70, 200, 550, 750, 950);
 square[18] = new Square("New York", "KC9300", "#ED2939", 9300, 6, 14, 70, 200, 550, 750, 950);
 square[19] = new Square("Bangkok", "KC10100", "#ED2939", 10100, 6, 16, 80, 220, 600, 800, 1000);
-=======
+/*=======
+
 square[0] = new Square("START", "COLLECT $200 SALARY AS YOU PASS.", "#FFFFFF");
 square[1] = new Square("Mediterranean Avenue", "$60", "#8B4513", 60, 3, 2, 10, 30, 90, 160, 250);
 square[2] = new Square("Mediterranean Avenueaosfosdhf", "$60", "#8B4513", 60, 3, 2, 10, 30, 90, 160, 250);
@@ -112,7 +113,7 @@ square[16] = new Square("St. James Place", "$180", "#FFA500", 180, 6, 14, 70, 20
 square[17] = new Square("Tennessee Avenueasdjfiajsdfi", "$180", "#FFA500", 180, 6, 14, 70, 200, 550, 750, 950);
 square[18] = new Square("Tennessee Avenue", "$180", "#FFA500", 180, 6, 14, 70, 200, 550, 750, 950);
 square[19] = new Square("New York Avenue", "$200", "#FFA500", 200, 6, 16, 80, 220, 600, 800, 1000);
->>>>>>> 808f9d547b6515b548bf3cf3677d4256a3aadbb1
+>>>>>>> 808f9d547b6515b548bf3cf3677d4256a3aadbb1*/
 
 var communityChestCards = [];
 var chanceCards = [];
