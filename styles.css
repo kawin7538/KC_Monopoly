@@ -843,8 +843,48 @@ td {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 5% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
   width: 50%; /* Could be more or less, depending on screen size */
+  left: 50%;
+  top: 50%;
+}
+
+#sing-phase-content{
+	border-radius: 30px;
+}
+
+/* Deed Content */
+#popup-deed td{
+	border: none;
+}
+
+#popup-deed-content{
+	width: 299px;
+	height: 350px;
+	left: 0;
+	top: 0;
+}
+
+#popup-deed-header {
+	width: 273px;
+	height: 61px;
+	border: 1px solid black;
+	margin: 9px;
+	background-color: yellow;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: Calibri, Arial;
+}
+
+#popup-deed-name {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+#popup-deed-table {
+	margin: 9px;
+	width: 276px;
+	border-spacing: 5px;
 }

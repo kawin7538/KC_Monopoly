@@ -2587,6 +2587,7 @@ function roll(position) {
 		p.money += 200;
 		addAlert(p.name + " collected a $200 salary for passing GO.");
 	}
+	deed_phase(p.position);
 	if(p.position !== 15){
 		sing_phase(p.position);
 		console.log(p.position);
@@ -2602,7 +2603,6 @@ function roll(position) {
 		$("#choosedice").show();
 		addAlert(p.name + " มีสิทธิ์ทอยใหม่อีกรอบจ้า ");
 	}
-
 	land();
 }
 
@@ -3089,6 +3089,8 @@ window.onload = function() {
 
 function sing_phase(position){
 
+	$("#sing-phase").delay(6000);
+
 	var btn = document.getElementById("nextbutton");
 	// Get the modal
 	var modal = document.getElementById('sing-phase');
@@ -3109,13 +3111,49 @@ function sing_phase(position){
 		//modal.fadeIn(400);
 		$("#sing-phase").fadeIn(250);
 	}
+	$("#nextbutton2").show();
+	document.getElementById("sing-phase-text").textContent="ร้องเพลงอีกซิ";
 	document.getElementById("nextbutton2").value = "End Sing";
 	document.getElementById("nextbutton2").title = "Chick Here to get donation.";
 	document.getElementById("nextbutton2").focus();
 
 	btn2.onclick = function(){
 		//modal.style.display = "none";
-		$("#sing-phase").fadeOut(250);
+		document.getElementById("sing-phase-text").textContent="Donation Money Here and Now!!!";
+		$("#nextbutton2").hide();
+		$("#sing-phase").delay(5000).fadeOut(250);
 	}
 
+}
+
+function deed_phase(position){
+	var sq=square[position];
+	$("#popup-deed").fadeIn(250);
+	document.getElementById("popup-deed-name").textContent=sq.name;
+	document.getElementById("popup-deed-header").style.backgroundColor=sq.color;
+	//console.log(sq.name);
+	//console.log(document.getElementById("popup-deed-name").textContent);
+	if(position === 0 || position === 5 || position === 10 || position === 15){
+		$(".popup-deed-special").show();
+		$(".popup-deed-normal").hide();
+		document.getElementById("popup-deed-special-content").textContent=sq.pricetext;
+		$("#popup-deed-special-content").show();
+	}
+	else{
+		$(".popup-deed-special").hide();
+		$(".popup-deed-normal").show();
+		$("#popup-deed-special-content").hide();
+		document.getElementById("popup-deed-baserent").textContent = sq.baserent;
+		document.getElementById("popup-deed-rent1").textContent = sq.rent1;
+		document.getElementById("popup-deed-rent2").textContent = sq.rent2;
+		document.getElementById("popup-deed-rent3").textContent = sq.rent3;
+		document.getElementById("popup-deed-rent4").textContent = sq.rent4;
+		document.getElementById("popup-deed-rent5").textContent = sq.rent5;
+		document.getElementById("popup-deed-mortgage").textContent = (sq.price / 2);
+		document.getElementById("popup-deed-houseprice").textContent = sq.houseprice;
+		document.getElementById("popup-deed-hotelprice").textContent = sq.houseprice;
+		
+	}
+	$("#popup-deed").delay(5000);
+	$("#popup-deed").fadeOut(250);
 }
