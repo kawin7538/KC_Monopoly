@@ -84,12 +84,14 @@ td {
 #control {
 	position: absolute;
 	z-index: 9;
-	left: 575px;
-	top: 250px;
+	/*left: 575px;
+	top: 250px;*/
 	border: 2px solid black;
 	padding: 10px;
 	display: none;
 	background-color: white;
+	right: 0%;
+	bottom: 0%;
 }
 
 #quickstats {
