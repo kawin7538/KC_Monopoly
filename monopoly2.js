@@ -2611,10 +2611,10 @@ function roll(position) {
 			addAlert(p.name + " collected a $200 salary for passing GO.");
 		}
 		p.position+=1;
-		land();
 		updatePosition();
 		if(p.position === new_position){
 			deed_phase(p.position);
+			land();
 			clearInterval(temp111);
 		}
 	}
