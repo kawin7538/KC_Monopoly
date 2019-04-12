@@ -1296,7 +1296,7 @@ function updatePosition() {
 		left = 0;
 		top = 0;
 
-		for (var y = turn; y <= pcount; y++) {
+		/*for (var y = turn; y <= pcount; y++) {
 
 			if (player[y].position == x && !player[y].jail) {
 
@@ -1311,6 +1311,16 @@ function updatePosition() {
 
 		for (var y = 1; y < turn; y++) {
 
+			if (player[y].position == x && !player[y].jail) {
+				document.getElementById("cell" + x + "positionholder").innerHTML += "<div class='cell-position' title='" + player[y].name + "' style='background-color: " + player[y].color + "; left: " + left + "px; top: " + top + "px;'></div>";
+				if (left == 36) {
+					left = 0;
+					top = 12;
+				} else
+					left += 12;
+			}
+		}*/
+		for (var y = 1; y <= pcount; y++) {
 			if (player[y].position == x && !player[y].jail) {
 				document.getElementById("cell" + x + "positionholder").innerHTML += "<div class='cell-position' title='" + player[y].name + "' style='background-color: " + player[y].color + "; left: " + left + "px; top: " + top + "px;'></div>";
 				if (left == 36) {
@@ -2290,6 +2300,13 @@ function land(increasedRent) {
 	var die1 = game.getDie(1);
 	var die2 = game.getDie(2);
 
+	if(p.position === 15){
+		document.getElementById("nextbutton").value = "Roll Again";
+		document.getElementById("nextbutton").title = "Roll Again and advance to the next player.";
+		$("#choosedice").show();
+		addAlert(p.name + " มีสิทธิ์ทอยใหม่อีกรอบจ้า ");
+	}
+
 	$("#landed").show();
 	document.getElementById("landed").innerHTML = "You landed on " + s.name + ".";
 	s.landcount++;
@@ -2560,7 +2577,6 @@ function roll(position) {
 	updatePosition();
 	updateMoney();
 	updateOwned();
-
 	//updateDice(die1, die2);
 
 	// Move player
@@ -2579,17 +2595,69 @@ function roll(position) {
 		return ;
 	}
 	//document.write(dice);
-	p.position += parseInt(dice);
+	new_position = parseInt(dice) + p.position;
+	if(new_position >=20){
+		new_position-=20;
+	}
 
 	// Collect $200 salary as you pass GO
-	if (p.position >= 20) {
+	/*if (p.position >= 20) {
 		p.position -= 20;
 		p.money += 200;
 		addAlert(p.name + " collected a $200 salary for passing GO.");
+	}*/
+	var temp111=setInterval(pong,200);
+	function pong(){
+		p.position+=1;
+		// Collect $200 salary as you pass GO
+		if (p.position >= 20) {
+			p.position -= 20;
+			p.money += 200;
+			addAlert(p.name + " collected a $200 salary for passing GO.");
+		}
+		updatePosition();
+		if(p.position === new_position){
+			deed_phase(p.position);
+			console.log("NEW"+p.position.toString());
+			if(p.position !== 15){
+				sing_phase(p.position,p);
+				//console.log(p.position);
+			}
+			if(p.position !== 15){
+				doublecount=0;
+				document.getElementById("nextbutton").value = "End turn";
+				document.getElementById("nextbutton").title = "End turn and advance to the next player.";
+			}	
+			else{
+				turn--;
+				document.getElementById("nextbutton").value = "Roll Again";
+				document.getElementById("nextbutton").title = "Roll Again and advance to the next player.";
+				$("#choosedice").show();
+				addAlert(p.name + " มีสิทธิ์ทอยใหม่อีกรอบจ้า ");
+				play();
+			}
+			land();
+			clearInterval(temp111);
+		}
+		console.log("LOOP"+p.position.toString());
 	}
+	/*while(p.position !== new_position){
+
+		// Collect $200 salary as you pass GO
+		if (p.position >= 20) {
+			p.position -= 20;
+			p.money += 200;
+			addAlert(p.name + " collected a $200 salary for passing GO.");
+		}
+		p.position+=1;
+		land();
+		updatePosition();
+	}*/
+	// deed_phase(p.position);
+	/*console.log("NEW"+p.position.toString());
 	if(p.position !== 15){
-		sing_phase(p.position);
-		console.log(p.position);
+		sing_phase(p.position,p);
+		//console.log(p.position);
 	}
 	if(p.position !== 15){
 		doublecount=0;
@@ -2602,8 +2670,7 @@ function roll(position) {
 		$("#choosedice").show();
 		addAlert(p.name + " มีสิทธิ์ทอยใหม่อีกรอบจ้า ");
 	}
-
-	land();
+	land();*/
 }
 
 function play() {
@@ -3087,7 +3154,9 @@ window.onload = function() {
 };
 
 
-function sing_phase(position){
+function sing_phase(position,player){
+
+	$("#sing-phase").delay(7000);
 
 	var btn = document.getElementById("nextbutton");
 	// Get the modal
@@ -3103,16 +3172,81 @@ function sing_phase(position){
 	/*btn.onclick = function() {
 	  modal.style.display = "block";
 	}*/
-	console.log(position);
-	if(position !== 15){
-		modal.style.display = "block" ;
+	//console.log(position);
+	if(p.position !== 15){
+		//modal.style.display = "block" ;
+		//modal.fadeIn(400);
+		$("#sing-phase").fadeIn(250);
 	}
+	$("#nextbutton2").show();
+	$("#sing-phase-money").hide();
+	$("#sing-phase-text").show();
+	document.getElementById("sing-phase-text").textContent="ร้องเพลงอีกซิ";
 	document.getElementById("nextbutton2").value = "End Sing";
 	document.getElementById("nextbutton2").title = "Chick Here to get donation.";
 	document.getElementById("nextbutton2").focus();
 
 	btn2.onclick = function(){
-		modal.style.display = "none";
+		//modal.style.display = "none";
+		document.getElementById("sing-phase-money").textContent=document.getElementById("sing-phase-hidden").textContent;
+		var plus=parseInt(document.getElementById("sing-phase-money").textContent);
+		console.log(plus);
+		//document.getElementById("sing-phase-text").textContent=plus;
+		$("#sing-phase-money").show();
+		$("#sing-phase-text").hide();
+		if(p.position === 5){
+			var temp=plus+plus;
+			document.getElementById("sing-phase-money").textContent=plus.toString()+" x2 = "+temp.toString();
+			plus=temp;
+		}
+		console.log(p.position);
+		p.money+=plus;
+		if(p.position === 10){
+			p.money-=1000;
+		}
+		updateMoney();
+		$("#nextbutton2").hide();
+		$("#sing-phase").delay(5000).fadeOut(250);
+		$.ajax({
+			url: 'truncate.php',
+			type: 'POST',
+			data: ''
+		})
+		.success(function(){
+			
+		});
 	}
 
+}
+
+function deed_phase(position){
+	var sq=square[position];
+	$("#popup-deed").fadeIn(250);
+	document.getElementById("popup-deed-name").textContent=sq.name;
+	document.getElementById("popup-deed-header").style.backgroundColor=sq.color;
+	//console.log(sq.name);
+	//console.log(document.getElementById("popup-deed-name").textContent);
+	if(position === 0 || position === 5 || position === 10 || position === 15){
+		$(".popup-deed-special").show();
+		$(".popup-deed-normal").hide();
+		document.getElementById("popup-deed-special-content").textContent=sq.pricetext;
+		$("#popup-deed-special-content").show();
+	}
+	else{
+		$(".popup-deed-special").hide();
+		$(".popup-deed-normal").show();
+		$("#popup-deed-special-content").hide();
+		document.getElementById("popup-deed-baserent").textContent = sq.baserent;
+		document.getElementById("popup-deed-rent1").textContent = sq.rent1;
+		document.getElementById("popup-deed-rent2").textContent = sq.rent2;
+		document.getElementById("popup-deed-rent3").textContent = sq.rent3;
+		document.getElementById("popup-deed-rent4").textContent = sq.rent4;
+		document.getElementById("popup-deed-rent5").textContent = sq.rent5;
+		document.getElementById("popup-deed-mortgage").textContent = (sq.price / 2);
+		document.getElementById("popup-deed-houseprice").textContent = sq.houseprice;
+		document.getElementById("popup-deed-hotelprice").textContent = sq.houseprice;
+		
+	}
+	$("#popup-deed").delay(5000);
+	$("#popup-deed").fadeOut(250);
 }
