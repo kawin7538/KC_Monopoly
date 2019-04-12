@@ -3208,7 +3208,7 @@ function sing_phase(position,player){
 		$("#nextbutton2").hide();
 		$("#sing-phase").delay(5000).fadeOut(250);
 		$.ajax({
-			url: 'truncate.php',
+			url: 'truncate_func.php',
 			type: 'POST',
 			data: ''
 		})
