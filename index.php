@@ -20,6 +20,8 @@
 <html>
 <head>
 	<title> Donation System </title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<link rel="icon" href="kc_icon.ico">
 	<style>
 		div {
 		  background-color: white;
