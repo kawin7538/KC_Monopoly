@@ -2300,6 +2300,13 @@ function land(increasedRent) {
 	var die1 = game.getDie(1);
 	var die2 = game.getDie(2);
 
+	if(p.position === 15){
+		document.getElementById("nextbutton").value = "Roll Again";
+		document.getElementById("nextbutton").title = "Roll Again and advance to the next player.";
+		$("#choosedice").show();
+		addAlert(p.name + " มีสิทธิ์ทอยใหม่อีกรอบจ้า ");
+	}
+
 	$("#landed").show();
 	document.getElementById("landed").innerHTML = "You landed on " + s.name + ".";
 	s.landcount++;
@@ -2601,22 +2608,38 @@ function roll(position) {
 	}*/
 	var temp111=setInterval(pong,200);
 	function pong(){
-		if(p.position === new_position){
-			clearInterval(temp111);
-		}
+		p.position+=1;
 		// Collect $200 salary as you pass GO
 		if (p.position >= 20) {
 			p.position -= 20;
 			p.money += 200;
 			addAlert(p.name + " collected a $200 salary for passing GO.");
 		}
-		p.position+=1;
 		updatePosition();
 		if(p.position === new_position){
 			deed_phase(p.position);
+			console.log("NEW"+p.position.toString());
+			if(p.position !== 15){
+				sing_phase(p.position,p);
+				//console.log(p.position);
+			}
+			if(p.position !== 15){
+				doublecount=0;
+				document.getElementById("nextbutton").value = "End turn";
+				document.getElementById("nextbutton").title = "End turn and advance to the next player.";
+			}	
+			else{
+				turn--;
+				document.getElementById("nextbutton").value = "Roll Again";
+				document.getElementById("nextbutton").title = "Roll Again and advance to the next player.";
+				$("#choosedice").show();
+				addAlert(p.name + " มีสิทธิ์ทอยใหม่อีกรอบจ้า ");
+				play();
+			}
 			land();
 			clearInterval(temp111);
 		}
+		console.log("LOOP"+p.position.toString());
 	}
 	/*while(p.position !== new_position){
 
@@ -2631,6 +2654,7 @@ function roll(position) {
 		updatePosition();
 	}*/
 	// deed_phase(p.position);
+	/*console.log("NEW"+p.position.toString());
 	if(p.position !== 15){
 		sing_phase(p.position,p);
 		//console.log(p.position);
@@ -2646,7 +2670,7 @@ function roll(position) {
 		$("#choosedice").show();
 		addAlert(p.name + " มีสิทธิ์ทอยใหม่อีกรอบจ้า ");
 	}
-	land();
+	land();*/
 }
 
 function play() {
@@ -3149,7 +3173,7 @@ function sing_phase(position,player){
 	  modal.style.display = "block";
 	}*/
 	//console.log(position);
-	if(position !== 15){
+	if(p.position !== 15){
 		//modal.style.display = "block" ;
 		//modal.fadeIn(400);
 		$("#sing-phase").fadeIn(250);
@@ -3166,6 +3190,7 @@ function sing_phase(position,player){
 		//modal.style.display = "none";
 		document.getElementById("sing-phase-money").textContent=document.getElementById("sing-phase-hidden").textContent;
 		var plus=parseInt(document.getElementById("sing-phase-money").textContent);
+		console.log(plus);
 		//document.getElementById("sing-phase-text").textContent=plus;
 		$("#sing-phase-money").show();
 		$("#sing-phase-text").hide();
@@ -3176,7 +3201,7 @@ function sing_phase(position,player){
 		}
 		console.log(p.position);
 		p.money+=plus;
-		if(position === 10){
+		if(p.position === 10){
 			p.money-=1000;
 		}
 		updateMoney();
@@ -3224,8 +3249,4 @@ function deed_phase(position){
 	}
 	$("#popup-deed").delay(5000);
 	$("#popup-deed").fadeOut(250);
-}
-
-function howmanymoney(){
-	
 }

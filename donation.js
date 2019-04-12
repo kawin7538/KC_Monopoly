@@ -5,7 +5,7 @@ function sum_money(){
 		data: ''
 	})
 	.success(function(result){
-		var obj=jQuery.parseJSON(result);
+		var obj=result;
 		//console.log(obj);
 		document.getElementById("sing-phase-hidden").textContent=obj;
 	});
