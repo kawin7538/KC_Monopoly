@@ -2632,7 +2632,7 @@ function roll(position) {
 	}*/
 	// deed_phase(p.position);
 	if(p.position !== 15){
-		sing_phase(p.position);
+		sing_phase(p.position,p);
 		//console.log(p.position);
 	}
 	if(p.position !== 15){
@@ -3130,7 +3130,7 @@ window.onload = function() {
 };
 
 
-function sing_phase(position){
+function sing_phase(position,player){
 
 	$("#sing-phase").delay(7000);
 
@@ -3155,6 +3155,8 @@ function sing_phase(position){
 		$("#sing-phase").fadeIn(250);
 	}
 	$("#nextbutton2").show();
+	$("#sing-phase-money").hide();
+	$("#sing-phase-text").show();
 	document.getElementById("sing-phase-text").textContent="ร้องเพลงอีกซิ";
 	document.getElementById("nextbutton2").value = "End Sing";
 	document.getElementById("nextbutton2").title = "Chick Here to get donation.";
@@ -3162,9 +3164,32 @@ function sing_phase(position){
 
 	btn2.onclick = function(){
 		//modal.style.display = "none";
-		document.getElementById("sing-phase-text").textContent="Donation Money Here and Now!!!";
+		document.getElementById("sing-phase-money").textContent=document.getElementById("sing-phase-hidden").textContent;
+		var plus=parseInt(document.getElementById("sing-phase-money").textContent);
+		//document.getElementById("sing-phase-text").textContent=plus;
+		$("#sing-phase-money").show();
+		$("#sing-phase-text").hide();
+		if(p.position === 5){
+			var temp=plus+plus;
+			document.getElementById("sing-phase-money").textContent=plus.toString()+" x2 = "+temp.toString();
+			plus=temp;
+		}
+		console.log(p.position);
+		p.money+=plus;
+		if(position === 10){
+			p.money-=1000;
+		}
+		updateMoney();
 		$("#nextbutton2").hide();
 		$("#sing-phase").delay(5000).fadeOut(250);
+		$.ajax({
+			url: 'truncate.php',
+			type: 'POST',
+			data: ''
+		})
+		.success(function(){
+			
+		});
 	}
 
 }
@@ -3199,4 +3224,8 @@ function deed_phase(position){
 	}
 	$("#popup-deed").delay(5000);
 	$("#popup-deed").fadeOut(250);
+}
+
+function howmanymoney(){
+	
 }
