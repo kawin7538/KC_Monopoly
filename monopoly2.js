@@ -2845,6 +2845,8 @@ function menuitem_onmouseout(element) {
 }
 
 window.onload = function() {
+	let el = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+    el.parentNode.removeChild(el);
 	game = new Game();
 
 	for (var i = 0; i <= 8; i++) {

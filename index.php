@@ -34,6 +34,7 @@
 			display: none;
 		}
 	</style>
+	<script type="text/javascript" src="remove_000.js"></script>
 </head>
 <body>
 <div id="formm"><center>How much did you donate?
