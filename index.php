@@ -23,7 +23,7 @@
 	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
 	<link rel="icon" href="kc_icon.ico">
 	<style>
-		div {
+		#formm {
 		  background-color: white;
 		  width: 300px;
 		  border: 1px solid black;
@@ -36,7 +36,7 @@
 	</style>
 </head>
 <body>
-<div><center>How much did you donate?
+<div id="formm"><center>How much did you donate?
 <form name="score" action="" method="post">
 KC<input type="text" name="score"><br>
 <br>
