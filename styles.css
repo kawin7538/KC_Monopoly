@@ -82,7 +82,7 @@ td {
 }
 
 
-#control {
+#mini-control {
 	position: absolute;
 	z-index: 9;
 	/*left: 575px;
@@ -852,10 +852,19 @@ td {
   width: 50%; /* Could be more or less, depending on screen size */
   left: 50%;
   top: 50%;
+  text-align: center;
 }
 
 #sing-phase-content{
 	border-radius: 30px;
+}
+
+#sing-phase-text{
+	font-size:50px;
+}
+
+#sing-phase-money{
+	font-size:100px;
 }
 
 /* Deed Content */
