@@ -708,7 +708,7 @@ function Game() {
 
 	this.trade = function(tradeObj) {
 		$("#board").hide();
-		$("#control").hide();
+		$("#mini-control").hide();
 		$("#trade").show();
 		$("#proposetradebutton").show();
 		$("#canceltradebutton").show();
@@ -732,7 +732,7 @@ function Game() {
 
 	this.cancelTrade = function() {
 		$("#board").show();
-		$("#control").show();
+		$("#mini-control").show();
 		$("#trade").hide();
 
 
@@ -854,7 +854,7 @@ function Game() {
 		updateMoney();
 
 		$("#board").show();
-		$("#control").show();
+		$("#mini-control").show();
 		$("#trade").hide();
 
 		if (!player[turn].human) {
@@ -979,7 +979,7 @@ function Game() {
 
 		if (pcount === 1) {
 			updateMoney();
-			$("#control").hide();
+			$("#mini-control").hide();
 			$("#board").hide();
 			$("#refresh").show();
 
@@ -1374,7 +1374,7 @@ function updatePosition() {
 function updateMoney() {
 	var p = player[turn];
 
-	document.getElementById("pmoney").innerHTML = "$" + p.money;
+	//document.getElementById("pmoney").innerHTML = "$" + p.money;
 	$(".money-bar-row").hide();
 
 	for (var i = 1; i <= pcount; i++) {
@@ -1391,7 +1391,7 @@ function updateMoney() {
 		$("#landed").hide();
 	}
 
-	document.getElementById("quickstats").style.borderColor = p.color;
+	//document.getElementById("quickstats").style.borderColor = p.color;
 
 	if (p.money < 0) {
 		// document.getElementById("nextbutton").disabled = true;
@@ -1450,8 +1450,8 @@ function updateDice() {
 function updateOwned() {
 	var p = player[turn];
 	var checkedproperty = getCheckedProperty();
-	$("#option").show();
-	$("#owned").show();
+	//$("#option").show();
+	//$("#owned").show();
 
 	var HTML = "",
 	firstproperty = -1;
@@ -1473,7 +1473,7 @@ function updateOwned() {
 		}
 	}
 
-	for (var i = 0; i < 20; i++) {
+	/*for (var i = 0; i < 20; i++) {
 		sq = square[i];
 		if (sq.owner == turn) {
 
@@ -1529,7 +1529,7 @@ function updateOwned() {
 		HTML += "</table>";
 	}
 
-	document.getElementById("owned").innerHTML = HTML;
+	//document.getElementById("owned").innerHTML = HTML;
 
 	// Select previously selected property.
 	if (checkedproperty > -1 && document.getElementById("propertycheckbox" + checkedproperty)) {
@@ -1554,11 +1554,11 @@ function updateOwned() {
 
 		updateOption();
 	});
-	updateOption();
+	updateOption();*/
 }
 
 function updateOption() {
-	$("#option").show();
+	//$("#option").show();
 
 	var allGroupUninproved = true;
 	var allGroupUnmortgaged = true;
@@ -1581,16 +1581,16 @@ function updateOption() {
 				housesum -= s.house;
 		}
 
-		$("#buildings").show();
-		document.getElementById("buildings").innerHTML = "<img src='images/house.png' alt='' title='House' class='house' />:&nbsp;" + housesum + "&nbsp;&nbsp;<img src='images/hotel.png' alt='' title='Hotel' class='hotel' />:&nbsp;" + hotelsum;
+		//$("#buildings").show();
+		//document.getElementById("buildings").innerHTML = "<img src='images/house.png' alt='' title='House' class='house' />:&nbsp;" + housesum + "&nbsp;&nbsp;<img src='images/hotel.png' alt='' title='Hotel' class='hotel' />:&nbsp;" + hotelsum;
 
 		return;
 	}
 
-	$("#buildings").hide();
+	//$("#buildings").hide();
 	var sq = square[checkedproperty];
 
-	buyhousebutton = document.getElementById("buyhousebutton");
+	/*buyhousebutton = document.getElementById("buyhousebutton");
 	sellhousebutton = document.getElementById("sellhousebutton");
 
 	$("#mortgagebutton").show();
@@ -1712,7 +1712,7 @@ function updateOption() {
 			$("#buyhousebutton").hide();
 			$("#sellhousebutton").hide();
 		}
-	}
+	}*/
 }
 
 function chanceCommunityChest() {
@@ -2686,7 +2686,7 @@ function play() {
 	var p = player[turn];
 	game.resetDice();
 
-	document.getElementById("pname").innerHTML = p.name;
+	//document.getElementById("pname").innerHTML = p.name;
 
 	addAlert("It is " + p.name + "'s turn.");
 
@@ -2694,7 +2694,7 @@ function play() {
 	p.pay(0, p.creditor);
 
 	$("#landed, #option, #manage").hide();
-	$("#board, #control, #moneybar, #viewstats, #buy").show();
+	$("#board, #mini-control, #moneybar, #viewstats, #buy").show();
 	$(".choosedice").show();
 
 	doublecount = 0;
@@ -2801,7 +2801,7 @@ function setup() {
 // }
 
 function getCheckedProperty() {
-	for (var i = 0; i < 42; i++) {
+	for (var i = 0; i <20 ; i++) {
 		if (document.getElementById("propertycheckbox" + i) && document.getElementById("propertycheckbox" + i).checked) {
 			return i;
 		}
@@ -2834,7 +2834,7 @@ function playernumber_onchange() {
 	}
 }
 
-function menuitem_onmouseover(element) {
+/*function menuitem_onmouseover(element) {
 	element.className = "menuitem menuitem_hover";
 	return;
 }
@@ -2842,11 +2842,19 @@ function menuitem_onmouseover(element) {
 function menuitem_onmouseout(element) {
 	element.className = "menuitem";
 	return;
-}
+}*/
 
 window.onload = function() {
-	let el = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
-    el.parentNode.removeChild(el);
+	//let el = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+    //el.parentNode.removeChild(el);
+    $.ajax({
+			url: 'truncate_func.php',
+			type: 'POST',
+			data: ''
+		})
+		.success(function(){
+			
+		});
 	game = new Game();
 
 	for (var i = 0; i <= 8; i++) {
@@ -3135,7 +3143,7 @@ window.onload = function() {
 		$("#statsbackground").fadeOut(400);
 	});
 
-	$("#buy-menu-item").click(function() {
+	/*$("#buy-menu-item").click(function() {
 		$("#buy").show();
 		$("#manage").hide();
 
@@ -3150,7 +3158,7 @@ window.onload = function() {
 	});
 
 
-	$("#trade-menu-item").click(game.trade);
+	$("#trade-menu-item").click(game.trade);*/
 
 
 };
