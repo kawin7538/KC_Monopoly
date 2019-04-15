@@ -28,15 +28,11 @@
 				if($stmt=mysqli_prepare($link,$text)){
 					mysqli_stmt_bind_param($stmt,"si",$ip,$score);
 					if(mysqli_stmt_execute($stmt)){
-						echo "FUCK";
+						echo "Score Complete";
 					}
-					echo "FUCK";
 				}
-				echo "FUCK";
 			}
-			echo "FUCK";
 	    }
-	    echo "FUCK";
 	}
 	mysqli_close($link);	
 ?>
