@@ -66,9 +66,11 @@ td {
 	display: none;
 	border: 2px solid black;
 	border-spacing: 3px;
-	margin: 25px;
-	float: left;
-
+	/*margin: 25px;*/
+	/*float: center;*/
+	margin-right: auto;
+	margin-left:auto;
+	margin-top:50px;
 }
 
 #jail {
