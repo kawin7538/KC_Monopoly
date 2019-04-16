@@ -2933,6 +2933,7 @@ window.onload = function() {
 	var currentCellPositionHolder;
 	var currentCellName;
 	var currentCellOwner;
+	var currentCellColor;
 
 	for (var i = 0; i < 20; i++) {
 		s = square[i];
@@ -2942,6 +2943,8 @@ window.onload = function() {
 		currentCellAnchor = currentCell.appendChild(document.createElement("div"));
 		currentCellAnchor.id = "cell" + i + "anchor";
 		currentCellAnchor.className = "cell-anchor";
+		//currentCellAnchor.style.backgroundImage = "url('images/0.png')";
+		//currentCellAnchor.style.backgroundSize= "100% 100%";
 
 		currentCellPositionHolder = currentCellAnchor.appendChild(document.createElement("div"));
 		currentCellPositionHolder.id = "cell" + i + "positionholder";
@@ -2952,6 +2955,11 @@ window.onload = function() {
 		currentCellName.id = "cell" + i + "name";
 		currentCellName.className = "cell-name";
 		currentCellName.textContent = s.name;
+
+		/*currentCellColor = currentCellAnchor.appendChild(document.createElement("div"));
+		currentCellColor.id = "cell" + i + "color";
+		currentCellColor.className = "cell-color";
+		currentCellColor.style.backgroundColor = s.color;*/
 
 		if (square[i].groupNumber) {
 			currentCellOwner = currentCellAnchor.appendChild(document.createElement("div"));
@@ -3191,7 +3199,7 @@ function sing_phase(position,player){
 	$("#nextbutton2").show();
 	$("#sing-phase-money").hide();
 	$("#sing-phase-text").show();
-	document.getElementById("sing-phase-text").textContent="ร้องเพลงอีกซิ";
+	document.getElementById("sing-phase-text").textContent="ร้องเพลงกันจ้า";
 	document.getElementById("nextbutton2").value = "End Sing";
 	document.getElementById("nextbutton2").title = "Chick Here to get donation.";
 	document.getElementById("nextbutton2").focus();
