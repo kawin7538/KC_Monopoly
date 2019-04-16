@@ -28,15 +28,12 @@
 				if($stmt=mysqli_prepare($link,$text)){
 					mysqli_stmt_bind_param($stmt,"si",$ip,$score);
 					if(mysqli_stmt_execute($stmt)){
-						echo "FUCK";
+						echo "Scoring Complete. Redirect to main page";
+						echo "<meta http-equiv=\"refresh\" content=\"3;url=index.php\">";
 					}
-					echo "FUCK";
 				}
-				echo "FUCK";
 			}
-			echo "FUCK";
 	    }
-	    echo "FUCK";
 	}
 	mysqli_close($link);	
 ?>

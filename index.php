@@ -1,4 +1,4 @@
-﻿<?php
+﻿<!--<?php
 	session_start();
 	function get_client_ip() {
 		$ipaddress = '';
@@ -35,7 +35,7 @@
 	    }
 	}
 	mysqli_close($link);	
-?>
+?>-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,7 +53,7 @@
 <br>
 <br>
 <div class="title">How much did you donate?</div>
-<form method="post">
+<form method="post" action="process.php">
 <div class="container">
   <div class="range-slider">
     <span id="rs-bullet" class="rs-label">0</span>
