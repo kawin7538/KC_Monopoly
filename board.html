@@ -108,7 +108,13 @@
 			</div>
 		</div>
 	</div>
-
+<table id="main-board">
+	<tr>
+		<td id="p1moneybar" class="moneybarcell" style="width: 300px;transition: all .5s ease;">
+			<div><span id="p1moneyname" style="transition: all .5s ease;">Player 1:</span></div>
+			<div><span id="p1money" style="transition: all .5s ease;">$1500</span></div>
+		</td>
+		<td>
 	<table id="board">
 		<tr>
 			<td class="cell board-corner" id="cell10"></td>
@@ -147,6 +153,13 @@
 			<td class="cell board-corner" id="cell0"></td>
 		</tr>
 	</table>
+		</td>
+		<td id="p2moneybar" class="moneybarcell" style="width: 300px;transition: all .5s ease;">
+			<div><span id="p2moneyname" style="transition: all .5s ease;">Player 2:</span></div>
+			<div><span id="p2money" style="transition: all .5s ease;">$1500</span></div>
+		</td>
+	</tr>
+</table>
 
 	<div id="moneybarwrap">
 		<div id="moneybar">
@@ -161,17 +174,17 @@
 				</tr>
 				<tr id="moneybarrow1" class="money-bar-row">
 					<td class="moneybararrowcell"><img src="images/arrow.png" id="p1arrow" class="money-bar-arrow" alt=">"/></td>
-					<td id="p1moneybar" class="moneybarcell">
+					<!--<td id="p1moneybar" class="moneybarcell">
 						<div><span id="p1moneyname" >Player 1</span>:</div>
 						<div>$<span id="p1money">1500</span></div>
-					</td>
+					</td>-->
 				</tr>
 				<tr id="moneybarrow2" class="money-bar-row">
 					<td class="moneybararrowcell"><img src="images/arrow.png" id="p2arrow" class="money-bar-arrow" alt=">" /></td>
-					<td id="p2moneybar" class="moneybarcell">
+					<!--<td id="p2moneybar" class="moneybarcell">
 						<div><span id="p2moneyname" >Player 2</span>:</div>
 						<div>$<span id="p2money">1500</span></div>
-					</td>
+					</td>-->
 				</tr>
 				<tr id="moneybarrow3" class="money-bar-row">
 					<td class="moneybararrowcell"><img src="images/arrow.png" id="p3arrow" class="money-bar-arrow" alt=">" /></td>
@@ -245,12 +258,12 @@
 				<option style="color: maroon;">Maroon</option>
 				<option style="color: navy;">Navy</option>
 				<option style="color: olive;">Olive</option>
-				<option style="color: orange;">Orange</option>
+				<option selected="selected" style="color: orange;">Orange</option>
 				<option style="color: purple;">Purple</option>
 				<option style="color: red;">Red</option>
 				<option style="color: silver;">Silver</option>
 				<option style="color: teal;">Teal</option>
-				<option selected="selected" style="color: yellow;">Yellow</option>
+				<option style="color: yellow;">Yellow</option>
 			</select>
 			<select id="player1ai" title="Choose whether this player is controled by a human or by the computer." onclick="document.getElementById('player1name').disabled = this.value !== '0';" disabled>
 				<option value="0" selected="selected">Human</option>
@@ -371,8 +384,6 @@
 				<td style="border: none">
 					<div id="landed"></div>
 				</td>
-			</tr>
-			<tr>
 				<td style="border:none">
 					<div style="padding-top: 8px;">
 						<select id="choosedice" class="choosedice">

@@ -1381,7 +1381,8 @@ function updateMoney() {
 		p_i = player[i];
 
 		$("#moneybarrow" + i).show();
-		document.getElementById("p" + i + "moneybar").style.border = "2px solid " + p_i.color;
+		//document.getElementById("p" + i + "moneybar").style.border = "2px solid " + p_i.color;
+		document.getElementById("p" + i + "moneybar").style.borderColor = p_i.color;
 		document.getElementById("p" + i + "money").innerHTML = p_i.money;
 		document.getElementById("p" + i + "moneyname").innerHTML = p_i.name;
 	}
@@ -2694,7 +2695,7 @@ function play() {
 	p.pay(0, p.creditor);
 
 	$("#landed, #option, #manage").hide();
-	$("#board, #mini-control, #moneybar, #viewstats, #buy").show();
+	$("#board, #mini-control, #moneybar, #viewstats, #buy, #main-board").show();
 	$(".choosedice").show();
 
 	doublecount = 0;
@@ -2739,8 +2740,20 @@ function play() {
 	updatePosition();
 	updateOwned();
 
-	$(".money-bar-arrow").hide();
-	$("#p" + turn + "arrow").show();
+	//$(".money-bar-arrow").hide();
+	//$("#p" + turn + "arrow").show
+	document.getElementById("p1moneybar").style.borderWidth = "2px";
+	document.getElementById("p2moneybar").style.borderWidth = "2px";
+	document.getElementById("p1moneybar").style.width = "150px";
+	document.getElementById("p2moneybar").style.width = "150px";
+	document.getElementById("p1moneyname").style.fontSize = "12px";
+	document.getElementById("p1money").style.fontSize = "12px";
+	document.getElementById("p2moneyname").style.fontSize = "12px";
+	document.getElementById("p2money").style.fontSize = "12px";
+	document.getElementById("p" + turn + "moneybar").style.borderWidth = "20px";
+	document.getElementById("p" + turn + "moneyname").style.fontSize = "72px";
+	document.getElementById("p" + turn + "money").style.fontSize = "72px";
+	document.getElementById("p" + turn + "moneybar").style.width="450px";
 
 	if (!p.human) {
 		if (!p.AI.beforeTurn()) {
