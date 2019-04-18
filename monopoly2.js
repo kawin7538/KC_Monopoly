@@ -3221,6 +3221,7 @@ function sing_phase(position,player){
 		//modal.style.display = "none";
 		document.getElementById("sing-phase-money").textContent=document.getElementById("sing-phase-hidden").textContent;
 		var plus=parseInt(document.getElementById("sing-phase-money").textContent);
+		document.getElementById("sing-phase-money").textContent="เงินที่ได้ : "+document.getElementById("sing-phase-money").textContent
 		console.log(plus);
 		//document.getElementById("sing-phase-text").textContent=plus;
 		$("#sing-phase-money").show();
