@@ -1,40 +1,19 @@
 ﻿<?php
 	session_start();
-	function get_client_ip() {
-		$ipaddress = '';
-		if (isset($_SERVER['HTTP_CLIENT_IP']))
-		    $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-		else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-		    $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-		else if(isset($_SERVER['HTTP_X_FORWARDED']))
-		    $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-		else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
-		    $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-		else if(isset($_SERVER['HTTP_FORWARDED']))
-		    $ipaddress = $_SERVER['HTTP_FORWARDED'];
-		else if(isset($_SERVER['REMOTE_ADDR']))
-		    $ipaddress = $_SERVER['REMOTE_ADDR'];
-		else
-		    $ipaddress = 'UNKNOWN';
-		return $ipaddress;
-	} 
-	$ip = get_client_ip();
-	require("db_config.php");
-	if($_SERVER["REQUEST_METHOD"]=="POST"){
-		if(!empty(trim($_POST["score"]))){
-	        $score=trim($_POST["score"]);
-	        if($score>0){
-				$text="INSERT INTO `money` (`IP`, `money`) VALUES (?,?);";
-				if($stmt=mysqli_prepare($link,$text)){
-					mysqli_stmt_bind_param($stmt,"si",$ip,$score);
-					if(mysqli_stmt_execute($stmt)){
-						echo "Score Complete";
-					}
-				}
-			}
-	    }
+	if(!isset($_SESSION['username']) || empty($_SESSION['username'])){
+		header("location: login.php");
+		exit;
 	}
-	mysqli_close($link);	
+?>
+<?php
+	if(!isset($_SESSION['score']) || empty($_SESSION['score'])){
+		$_SESSION['score']=0;
+	}
+?>
+<?php
+	if(isset($_SESSION['msg']) && !empty($_SESSION['msg'])){
+		//show alert
+	}
 ?>
 <!DOCTYPE html>
 <html>
@@ -48,16 +27,52 @@
 	<script type="text/javascript" src="remove_000.js"></script>
 	<script type="text/javascript" src="slider.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<style>
+		.status{
+			color: white;
+			width: 200px;
+			text-align: center;
+			position: relative;
+			top: 0px;
+			left: 0px;
+			font-size:20px;
+		}
+		.logout-box{
+			background-color:white;
+			color:black;
+			border-radius: 20px;
+			text-align:center;
+			position: relative;
+			width: 100px;
+			height: 40px;
+			font-size: 20px;
+			margin: 10px;
+		}
+		.logout{
+			background-color:white;
+			color:black;
+			text-align:center;
+			position: relative;
+		}
+	</style>
 </head>
 <body>
 <br>
-<br>
+<div class="status">
+	Sign in as <u><i><?php echo $_SESSION['username'] ?></i></u>
+	<br>
+	<a class="logout" href="logout.php">
+		<div class="logout-box">
+			Logout
+		</div>
+	</a>
+</div>
 <div class="title">How much did you donate?</div>
-<form method="post">
+<form method="post" action="score_process.php">
 <div class="container">
   <div class="range-slider">
-    <span id="rs-bullet" class="rs-label">0</span>
-    <input name="score" id="rs-range-line" class="rs-range" type="range" value="0" min="0" max="500">
+    <span id="rs-bullet" class="rs-label"><?php echo $_SESSION['score']; ?></span>
+    <input name="score" id="rs-range-line" class="rs-range" type="range" value="<?php echo $_SESSION['score']; ?>" min="0" max="500">
     
   </div>
   

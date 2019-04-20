@@ -1,6 +1,6 @@
 function sum_money(){
 	$.ajax({
-		url: "donation_func.php",
+		url: "sum_donation.php",
 		type: "POST",
 		data: ''
 	})

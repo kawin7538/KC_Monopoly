@@ -1381,7 +1381,8 @@ function updateMoney() {
 		p_i = player[i];
 
 		$("#moneybarrow" + i).show();
-		document.getElementById("p" + i + "moneybar").style.border = "2px solid " + p_i.color;
+		//document.getElementById("p" + i + "moneybar").style.border = "2px solid " + p_i.color;
+		document.getElementById("p" + i + "moneybar").style.borderColor = p_i.color;
 		document.getElementById("p" + i + "money").innerHTML = p_i.money;
 		document.getElementById("p" + i + "moneyname").innerHTML = p_i.name;
 	}
@@ -2694,7 +2695,7 @@ function play() {
 	p.pay(0, p.creditor);
 
 	$("#landed, #option, #manage").hide();
-	$("#board, #mini-control, #moneybar, #viewstats, #buy").show();
+	$("#board, #mini-control, #moneybar, #viewstats, #buy, #main-board").show();
 	$(".choosedice").show();
 
 	doublecount = 0;
@@ -2739,8 +2740,20 @@ function play() {
 	updatePosition();
 	updateOwned();
 
-	$(".money-bar-arrow").hide();
-	$("#p" + turn + "arrow").show();
+	//$(".money-bar-arrow").hide();
+	//$("#p" + turn + "arrow").show
+	document.getElementById("p1moneybar").style.borderWidth = "2px";
+	document.getElementById("p2moneybar").style.borderWidth = "2px";
+	document.getElementById("p1moneybar").style.width = "150px";
+	document.getElementById("p2moneybar").style.width = "150px";
+	document.getElementById("p1moneyname").style.fontSize = "12px";
+	document.getElementById("p1money").style.fontSize = "12px";
+	document.getElementById("p2moneyname").style.fontSize = "12px";
+	document.getElementById("p2money").style.fontSize = "12px";
+	document.getElementById("p" + turn + "moneybar").style.borderWidth = "20px";
+	document.getElementById("p" + turn + "moneyname").style.fontSize = "72px";
+	document.getElementById("p" + turn + "money").style.fontSize = "72px";
+	document.getElementById("p" + turn + "moneybar").style.width="450px";
 
 	if (!p.human) {
 		if (!p.AI.beforeTurn()) {
@@ -2933,6 +2946,7 @@ window.onload = function() {
 	var currentCellPositionHolder;
 	var currentCellName;
 	var currentCellOwner;
+	var currentCellColor;
 
 	for (var i = 0; i < 20; i++) {
 		s = square[i];
@@ -2942,6 +2956,8 @@ window.onload = function() {
 		currentCellAnchor = currentCell.appendChild(document.createElement("div"));
 		currentCellAnchor.id = "cell" + i + "anchor";
 		currentCellAnchor.className = "cell-anchor";
+		//currentCellAnchor.style.backgroundImage = "url('images/0.png')";
+		//currentCellAnchor.style.backgroundSize= "100% 100%";
 
 		currentCellPositionHolder = currentCellAnchor.appendChild(document.createElement("div"));
 		currentCellPositionHolder.id = "cell" + i + "positionholder";
@@ -2952,6 +2968,11 @@ window.onload = function() {
 		currentCellName.id = "cell" + i + "name";
 		currentCellName.className = "cell-name";
 		currentCellName.textContent = s.name;
+
+		/*currentCellColor = currentCellAnchor.appendChild(document.createElement("div"));
+		currentCellColor.id = "cell" + i + "color";
+		currentCellColor.className = "cell-color";
+		currentCellColor.style.backgroundColor = s.color;*/
 
 		if (square[i].groupNumber) {
 			currentCellOwner = currentCellAnchor.appendChild(document.createElement("div"));
@@ -3191,7 +3212,7 @@ function sing_phase(position,player){
 	$("#nextbutton2").show();
 	$("#sing-phase-money").hide();
 	$("#sing-phase-text").show();
-	document.getElementById("sing-phase-text").textContent="ร้องเพลงอีกซิ";
+	document.getElementById("sing-phase-text").textContent="ร้องเพลงกันจ้า";
 	document.getElementById("nextbutton2").value = "End Sing";
 	document.getElementById("nextbutton2").title = "Chick Here to get donation.";
 	document.getElementById("nextbutton2").focus();
@@ -3200,6 +3221,7 @@ function sing_phase(position,player){
 		//modal.style.display = "none";
 		document.getElementById("sing-phase-money").textContent=document.getElementById("sing-phase-hidden").textContent;
 		var plus=parseInt(document.getElementById("sing-phase-money").textContent);
+		document.getElementById("sing-phase-money").textContent="เงินที่ได้ : "+document.getElementById("sing-phase-money").textContent
 		console.log(plus);
 		//document.getElementById("sing-phase-text").textContent=plus;
 		$("#sing-phase-money").show();
