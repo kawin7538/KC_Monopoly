@@ -40,8 +40,8 @@
 	        			$_SESSION['score']=$score;
 	        			echo "Scoring Complete. Redirect to main page";
 	        			$_SESSION['msg']="Successfully donate with "+strval($_SESSION['score']);
-	       				//echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL=http://kawin7538.000webhostapp.com/kc\">";
-	       				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL=../KC_Monopoly\">";
+	       				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL=http://kawin7538.000webhostapp.com/kc\">";
+	       				//echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL=../KC_Monopoly\">";
 	        		}
 	        	}
 			}

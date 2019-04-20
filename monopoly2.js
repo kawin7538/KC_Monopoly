@@ -1474,7 +1474,7 @@ function updateOwned() {
 		}
 	}
 
-	/*for (var i = 0; i < 20; i++) {
+	for (var i = 0; i < 20; i++) {
 		sq = square[i];
 		if (sq.owner == turn) {
 
@@ -1530,7 +1530,7 @@ function updateOwned() {
 		HTML += "</table>";
 	}
 
-	//document.getElementById("owned").innerHTML = HTML;
+	document.getElementById("owned").innerHTML = HTML;
 
 	// Select previously selected property.
 	if (checkedproperty > -1 && document.getElementById("propertycheckbox" + checkedproperty)) {
@@ -1555,11 +1555,11 @@ function updateOwned() {
 
 		updateOption();
 	});
-	updateOption();*/
+	updateOption();
 }
 
 function updateOption() {
-	//$("#option").show();
+	$("#option").show();
 
 	var allGroupUninproved = true;
 	var allGroupUnmortgaged = true;
@@ -1582,16 +1582,16 @@ function updateOption() {
 				housesum -= s.house;
 		}
 
-		//$("#buildings").show();
-		//document.getElementById("buildings").innerHTML = "<img src='images/house.png' alt='' title='House' class='house' />:&nbsp;" + housesum + "&nbsp;&nbsp;<img src='images/hotel.png' alt='' title='Hotel' class='hotel' />:&nbsp;" + hotelsum;
+		$("#buildings").show();
+		document.getElementById("buildings").innerHTML = "<img src='images/house.png' alt='' title='House' class='house' />:&nbsp;" + housesum + "&nbsp;&nbsp;<img src='images/hotel.png' alt='' title='Hotel' class='hotel' />:&nbsp;" + hotelsum;
 
 		return;
 	}
 
-	//$("#buildings").hide();
+	$("#buildings").hide();
 	var sq = square[checkedproperty];
 
-	/*buyhousebutton = document.getElementById("buyhousebutton");
+	buyhousebutton = document.getElementById("buyhousebutton");
 	sellhousebutton = document.getElementById("sellhousebutton");
 
 	$("#mortgagebutton").show();
@@ -1713,7 +1713,7 @@ function updateOption() {
 			$("#buyhousebutton").hide();
 			$("#sellhousebutton").hide();
 		}
-	}*/
+	}
 }
 
 function chanceCommunityChest() {
@@ -2858,8 +2858,8 @@ function menuitem_onmouseout(element) {
 }*/
 
 window.onload = function() {
-	let el = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
-    el.parentNode.removeChild(el);
+	//let el = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+    //el.parentNode.removeChild(el);
     $.ajax({
 			url: 'truncate_func.php',
 			type: 'POST',
@@ -3181,6 +3181,12 @@ window.onload = function() {
 
 	$("#trade-menu-item").click(game.trade);*/
 
+	$("#managebutton").click(function(){
+		$("#manage-modal").show();
+		$("#manage").show();
+		//$("#option").show();
+	});
+
 
 };
 
@@ -3281,4 +3287,8 @@ function deed_phase(position){
 	}
 	$("#popup-deed").delay(5000);
 	$("#popup-deed").fadeOut(250);
+}
+
+function close_manage_modal(){
+	$("#manage-modal").hide();
 }

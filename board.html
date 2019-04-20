@@ -381,6 +381,9 @@
 	<div id="mini-control">
 		<table>
 			<tr>
+				<td style="border: none;">
+					<input type="button" id="managebutton" value="managebutton">
+				</td>
 				<td style="border: none">
 					<div id="landed"></div>
 				</td>
@@ -451,6 +454,21 @@
 		    <input type="button" id="nextbutton2" title="Roll the dice and move your token accordingly." value="Roll Dice"/>
 		  </div>
 
+	</div>
+
+	<div id="manage-modal" class="modal">
+		<div id="manage-modal-content" class="modal-content">
+			<center><div id="manage">
+				<div id="option">
+					<div id="buildings" title="Available buildings"></div>
+					<input type="button" value="Buy house" id="buyhousebutton"/>
+					<input type="button" value="Mortgage" id="mortgagebutton" />
+					<input type="button" value="Sell house" id="sellhousebutton"/>
+				</div>
+				<div id="owned"></div>
+			</div></center>
+			<input type="button" onclick="close_manage_modal()" value="Close This Modal">
+		</div>
 	</div>
 
 	<div id="popup-deed" class="modal">

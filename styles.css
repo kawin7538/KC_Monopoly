@@ -312,7 +312,7 @@ td {
 	border-radius: 10px;
 	background-color: white;
 	display: block;
-	z-index: 13;
+	z-index: 99;
 	margin: auto;
 	-webkit-user-select: none;
 	user-select: none;
@@ -325,7 +325,7 @@ td {
 	width: 100%;
 	display: none;
 	background-color: transparent;
-	z-index: 13;
+	z-index: 99;
 	-webkit-user-select: none;
 	user-select: none;
 }
@@ -853,7 +853,7 @@ td {
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 99; /* Sit on top */
+  z-index: 75; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -919,4 +919,8 @@ td {
 	margin: 9px;
 	width: 276px;
 	border-spacing: 5px;
+}
+#manage-modal-content{
+	width: 330px;
+	border-radius: 30px;
 }
