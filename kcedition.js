@@ -71,26 +71,26 @@ function citytax() {
 var square = [];
 
 //<<<<<<< HEAD
-square[0] = new Square("START", "COLLECT KC2000 SALARY AS YOU PASS.", "#FFFFFF");
-square[1] = new Square("Peking", "KC500", "#54B948", 500, 3, 2, 10, 30, 90, 160, 250);
-square[2] = new Square("Taipei", "KC700", "#54B948", 700, 3, 2, 10, 30, 90, 160, 250);
-square[3] = new Square("New Delhi", "KC1300", "#54B948", 1300, 3, 4, 20, 60, 180, 320, 450);
-square[4] = new Square("Seoul", "KC2200", "#54B948", 2200, 3, 4, 20, 60, 180, 320, 450);
+square[0] = new Square("START", "COLLECT KC200 SALARY AS YOU PASS.", "#FFFFFF");
+square[1] = new Square("Peking", "500 KC", "#54B948", 500, 3, 2, 10, 30, 90, 160, 250);
+square[2] = new Square("Taipei", "700 KC", "#54B948", 700, 3, 2, 10, 30, 90, 160, 250);
+square[3] = new Square("New Delhi", "1300 KC", "#54B948", 1300, 3, 4, 20, 60, 180, 320, 450);
+square[4] = new Square("Seoul", "2200 KC", "#54B948", 2200, 3, 4, 20, 60, 180, 320, 450);
 square[5] = new Square("X2", "Chance for X2 extra money!", "#FFFFFF");
-square[6] = new Square("Tokyo", "KC3000", "#27AEE3", 3000, 4, 6, 30, 90, 270, 400, 550);
-square[7] = new Square("Singapore", "KC3100", "#27AEE3", 3100, 4, 6, 30, 90, 270, 400, 550);
-square[8] = new Square("Berlin", "KC3400", "#27AEE3", 3400, 4, 6, 30, 90, 270, 400, 550);
-square[9] = new Square("Moscow", "KC4000", "#27AEE3", 4000, 4, 8, 40, 100, 300, 450, 600);
-square[10] = new Square("FINE", "-KC1000", "#FFFFFF");
-square[11] = new Square("Geneva", "KC4300", "#FEBB1B", 4300, 5, 10, 50, 150, 450, 625, 750);
-square[12] = new Square("Rome", "KC4500", "#FEBB1B", 4500, 5, 10, 50, 150, 450, 625, 750);
-square[13] = new Square("São Paulo", "KC5000", "#FEBB1B", 5000, 5, 10, 50, 150, 450, 625, 750);
-square[14] = new Square("Hawaii", "KC6200", "#FEBB1B", 6200, 5, 12, 60, 180, 500, 700, 900);
+square[6] = new Square("Tokyo", "3000 KC", "#27AEE3", 3000, 4, 6, 30, 90, 270, 400, 550);
+square[7] = new Square("Singapore", "3100 KC", "#27AEE3", 3100, 4, 6, 30, 90, 270, 400, 550);
+square[8] = new Square("Berlin", "3400 KC", "#27AEE3", 3400, 4, 6, 30, 90, 270, 400, 550);
+square[9] = new Square("Moscow", "4000 KC", "#27AEE3", 4000, 4, 8, 40, 100, 300, 450, 600);
+square[10] = new Square("FINE", "-1000 KC", "#FFFFFF");
+square[11] = new Square("Geneva", "4300 KC", "#FEBB1B", 4300, 5, 10, 50, 150, 450, 625, 750);
+square[12] = new Square("Rome", "4500 KC", "#FEBB1B", 4500, 5, 10, 50, 150, 450, 625, 750);
+square[13] = new Square("São Paulo", "5000 KC", "#FEBB1B", 5000, 5, 10, 50, 150, 450, 625, 750);
+square[14] = new Square("Hawaii", "6200 KC", "#FEBB1B", 6200, 5, 12, 60, 180, 500, 700, 900);
 square[15] = new Square("Roll a Dice", "Roll a dice again!", "#FFFFFF");
-square[16] = new Square("London", "KC7900", "#ED2939", 7900, 6, 14, 70, 200, 550, 750, 950);
-square[17] = new Square("Paris", "KC8000", "#ED2939", 8000, 6, 14, 70, 200, 550, 750, 950);
-square[18] = new Square("New York", "KC9300", "#ED2939", 9300, 6, 14, 70, 200, 550, 750, 950);
-square[19] = new Square("Bangkok", "KC10100", "#ED2939", 10100, 6, 16, 80, 220, 600, 800, 1000);
+square[16] = new Square("London", "7900 KC", "#ED2939", 7900, 6, 14, 70, 200, 550, 750, 950);
+square[17] = new Square("Paris", "8000 KC", "#ED2939", 8000, 6, 14, 70, 200, 550, 750, 950);
+square[18] = new Square("New York", "9300 KC", "#ED2939", 9300, 6, 14, 70, 200, 550, 750, 950);
+square[19] = new Square("Bangkok", "10100 KC", "#ED2939", 10100, 6, 16, 80, 220, 600, 800, 1000);
 /*=======
 
 square[0] = new Square("START", "COLLECT $200 SALARY AS YOU PASS.", "#FFFFFF");
