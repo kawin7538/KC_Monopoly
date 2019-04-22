@@ -47,14 +47,20 @@
 	                        } else{
 	                            // Display an error message if password is not valid
 	                            $password_err = 'The password you entered was not valid.';
+	                            header("location: login.php");
+	                            exit;
 	                        }
 	                    }
 	                } else{
 	                    // Display an error message if username doesn't exist
 	                    $username_err = 'No account found with that username.';
+	                    header("location: login.php");
+	                    exit;
 	                }
 	            } else{
 	                echo "Oops! Something went wrong. Please try again later.";
+	                header("location: login.php");
+	                exit;
 	            }
 	        }
 	        // Close statement
