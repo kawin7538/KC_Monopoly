@@ -93,10 +93,6 @@
       border-radius: 25px;
       background: #57b846;
     }
-
-    .login-button:hover {
-      background: #336d28;
-    }
     </style>
 </head>
 <body>
@@ -108,6 +104,12 @@
           <span class="login-title">
             Audience Login
           </span>
+          <?php
+            if(isset($_SESSION['msg'])&&!empty($_SESSION['msg'])){
+              echo $_SESSION['msg'];
+              $_SESSION['msg']="";
+            }
+          ?>
 
           <div class="user-input">
             <input class="input" type="text" name="username" placeholder="Username">
