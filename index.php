@@ -12,7 +12,7 @@
 ?>
 <?php
 	if(isset($_SESSION['msg']) && !empty($_SESSION['msg'])){
-		alert("Thank you for your donation!");
+		unset($_SESSION['msg']);
 	}
 ?>
 <!DOCTYPE html>
