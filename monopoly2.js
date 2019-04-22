@@ -2766,7 +2766,7 @@ function play() {
 	document.getElementById("p" + turn + "moneybar").style.borderWidth = "20px";
 	document.getElementById("p" + turn + "moneyname").style.fontSize = "72px";
 	document.getElementById("p" + turn + "money").style.fontSize = "72px";
-	document.getElementById("p" + turn + "moneybar").style.width="450px";
+	document.getElementById("p" + turn + "moneybar").style.width="350px";
 
 	if (!p.human) {
 		if (!p.AI.beforeTurn()) {
