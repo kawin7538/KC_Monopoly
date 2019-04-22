@@ -1474,7 +1474,7 @@ function updateOwned() {
 		}
 	}
 
-	/*for (var i = 0; i < 20; i++) {
+	for (var i = 0; i < 20; i++) {
 		sq = square[i];
 		if (sq.owner == turn) {
 
@@ -1530,7 +1530,7 @@ function updateOwned() {
 		HTML += "</table>";
 	}
 
-	//document.getElementById("owned").innerHTML = HTML;
+	document.getElementById("owned").innerHTML = HTML;
 
 	// Select previously selected property.
 	if (checkedproperty > -1 && document.getElementById("propertycheckbox" + checkedproperty)) {
@@ -1555,11 +1555,11 @@ function updateOwned() {
 
 		updateOption();
 	});
-	updateOption();*/
+	updateOption();
 }
 
 function updateOption() {
-	//$("#option").show();
+	$("#option").show();
 
 	var allGroupUninproved = true;
 	var allGroupUnmortgaged = true;
@@ -1582,16 +1582,16 @@ function updateOption() {
 				housesum -= s.house;
 		}
 
-		//$("#buildings").show();
-		//document.getElementById("buildings").innerHTML = "<img src='images/house.png' alt='' title='House' class='house' />:&nbsp;" + housesum + "&nbsp;&nbsp;<img src='images/hotel.png' alt='' title='Hotel' class='hotel' />:&nbsp;" + hotelsum;
+		$("#buildings").show();
+		document.getElementById("buildings").innerHTML = "<img src='images/house.png' alt='' title='House' class='house' />:&nbsp;" + housesum + "&nbsp;&nbsp;<img src='images/hotel.png' alt='' title='Hotel' class='hotel' />:&nbsp;" + hotelsum;
 
 		return;
 	}
 
-	//$("#buildings").hide();
+	$("#buildings").hide();
 	var sq = square[checkedproperty];
 
-	/*buyhousebutton = document.getElementById("buyhousebutton");
+	buyhousebutton = document.getElementById("buyhousebutton");
 	sellhousebutton = document.getElementById("sellhousebutton");
 
 	$("#mortgagebutton").show();
@@ -1713,7 +1713,7 @@ function updateOption() {
 			$("#buyhousebutton").hide();
 			$("#sellhousebutton").hide();
 		}
-	}*/
+	}
 }
 
 function chanceCommunityChest() {
@@ -2099,6 +2099,7 @@ function sellHouse(index) {
 
 function showStats() {
 	var HTML, sq, p;
+	var sum_price;
 	var mortgagetext,
 	housetext;
 	var write;
@@ -2107,6 +2108,7 @@ function showStats() {
 	for (var x = 1; x <= pcount; x++) {
 		write = false;
 		p = player[x];
+		sum_price = p.money;
 		if (x == 5) {
 			HTML += "</tr><tr>";
 		}
@@ -2140,7 +2142,15 @@ function showStats() {
 					HTML += " border: 1px solid grey;";
 				}
 
-				HTML += "' onmouseover='showdeed(" + i + ");' onmouseout='hidedeed();'></td><td class='statscellname' " + mortgagetext + ">" + sq.name + housetext + "</td></tr>";
+				HTML += "' onmouseover='showdeed(" + i + ");' onmouseout='hidedeed();'></td><td class='statscellname' " + mortgagetext + ">" + sq.name + housetext;
+				if (sq.mortgage){
+					HTML += "( mortgage )";
+				}
+				else{
+					HTML += "( " + sq.price + " )";
+					sum_price += sq.price;
+				}
+				HTML += "</td></tr>";
 			}
 		}
 
@@ -2162,10 +2172,13 @@ function showStats() {
 		}
 
 		if (!write) {
-			HTML += p.name + " dosen't have any properties.";
+			HTML += p.name + " dosen't have any properties.<br>";
 		} else {
 			HTML += "</table>";
 		}
+		HTML += "<br>money : " + p.money ;
+
+		HTML += "<br><br>Total Assets : " + sum_price;
 
 		HTML += "</td>";
 	}
@@ -2753,7 +2766,7 @@ function play() {
 	document.getElementById("p" + turn + "moneybar").style.borderWidth = "20px";
 	document.getElementById("p" + turn + "moneyname").style.fontSize = "72px";
 	document.getElementById("p" + turn + "money").style.fontSize = "72px";
-	document.getElementById("p" + turn + "moneybar").style.width="450px";
+	document.getElementById("p" + turn + "moneybar").style.width="350px";
 
 	if (!p.human) {
 		if (!p.AI.beforeTurn()) {
@@ -3181,6 +3194,13 @@ window.onload = function() {
 
 	$("#trade-menu-item").click(game.trade);*/
 
+	$("#managebutton").click(function(){
+		//$("#manage-modal").show();
+		$("#manage-modal").fadeIn(400);
+		$("#manage").show();
+		//$("#option").show();
+	});
+
 
 };
 
@@ -3281,4 +3301,9 @@ function deed_phase(position){
 	}
 	$("#popup-deed").delay(5000);
 	$("#popup-deed").fadeOut(250);
+}
+
+function close_manage_modal(){
+	//$("#manage-modal").hide();
+	$("#manage-modal").fadeOut(400);
 }

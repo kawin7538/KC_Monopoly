@@ -12,7 +12,7 @@
 ?>
 <?php
 	if(isset($_SESSION['msg']) && !empty($_SESSION['msg'])){
-		//show alert
+		unset($_SESSION['msg']);
 	}
 ?>
 <!DOCTYPE html>
@@ -73,13 +73,13 @@
   <div class="range-slider">
     <span id="rs-bullet" class="rs-label"><?php echo $_SESSION['score']; ?></span>
     <input name="score" id="rs-range-line" class="rs-range" type="range" value="<?php echo $_SESSION['score']; ?>" min="0" max="500">
-    
+
   </div>
-  
+
   <div class="box-minmax">
     <span>0</span><span>500</span>
   </div>
-  
+
 </div>
 <div class="submitt"><input class="button" type="submit" value="Submit" onclick="submit();"></div>
 </form>

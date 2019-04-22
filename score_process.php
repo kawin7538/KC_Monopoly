@@ -23,7 +23,7 @@
 	        					if($stmt=mysqli_prepare($link,$text)){
 	        						mysqli_stmt_bind_param($stmt,"is",$score,$username);
 	        						if(mysqli_stmt_execute($stmt)){
-	        							echo "f";
+
 	        						}
 	        					}
 		        			}
@@ -32,16 +32,16 @@
 								if($stmt=mysqli_prepare($link,$text)){
 									mysqli_stmt_bind_param($stmt,"si",$username,$score);
 									if(mysqli_stmt_execute($stmt)){
-										echo "f";
+
 									}
 								}
 		        			}
 	        			}
 	        			$_SESSION['score']=$score;
-	        			echo "Scoring Complete. Redirect to main page";
 	        			$_SESSION['msg']="Successfully donate with "+strval($_SESSION['score']);
-	       				//echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL=http://kawin7538.000webhostapp.com/kc\">";
-	       				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL=../KC_Monopoly\">";
+	        			echo "<script>alert(\"Thank you for your donation!\");</script>";
+	       				echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL=http://kawin7538.000webhostapp.com/kc\">";
+	       				//echo "<META HTTP-EQUIV=\"Refresh\" CONTENT=\"0;URL=../KC_Monopoly\">";
 	        		}
 	        	}
 			}
