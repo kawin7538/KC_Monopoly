@@ -2099,6 +2099,7 @@ function sellHouse(index) {
 
 function showStats() {
 	var HTML, sq, p;
+	var sum_price;
 	var mortgagetext,
 	housetext;
 	var write;
@@ -2107,6 +2108,7 @@ function showStats() {
 	for (var x = 1; x <= pcount; x++) {
 		write = false;
 		p = player[x];
+		sum_price = p.money;
 		if (x == 5) {
 			HTML += "</tr><tr>";
 		}
@@ -2140,7 +2142,15 @@ function showStats() {
 					HTML += " border: 1px solid grey;";
 				}
 
-				HTML += "' onmouseover='showdeed(" + i + ");' onmouseout='hidedeed();'></td><td class='statscellname' " + mortgagetext + ">" + sq.name + housetext + "</td></tr>";
+				HTML += "' onmouseover='showdeed(" + i + ");' onmouseout='hidedeed();'></td><td class='statscellname' " + mortgagetext + ">" + sq.name + housetext;
+				if (sq.mortgage){
+					HTML += "( mortgage )";
+				}
+				else{
+					HTML += "( " + sq.price + " )";
+					sum_price += sq.price;
+				}
+				HTML += "</td></tr>";
 			}
 		}
 
@@ -2162,10 +2172,13 @@ function showStats() {
 		}
 
 		if (!write) {
-			HTML += p.name + " dosen't have any properties.";
+			HTML += p.name + " dosen't have any properties.<br>";
 		} else {
 			HTML += "</table>";
 		}
+		HTML += "<br>money : " + p.money ;
+
+		HTML += "<br><br>Total Assets : " + sum_price;
 
 		HTML += "</td>";
 	}
@@ -3182,7 +3195,8 @@ window.onload = function() {
 	$("#trade-menu-item").click(game.trade);*/
 
 	$("#managebutton").click(function(){
-		$("#manage-modal").show();
+		//$("#manage-modal").show();
+		$("#manage-modal").fadeIn(400);
 		$("#manage").show();
 		//$("#option").show();
 	});
@@ -3290,5 +3304,6 @@ function deed_phase(position){
 }
 
 function close_manage_modal(){
-	$("#manage-modal").hide();
+	//$("#manage-modal").hide();
+	$("#manage-modal").fadeOut(400);
 }
