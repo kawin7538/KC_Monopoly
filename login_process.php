@@ -47,6 +47,7 @@
 	                        } else{
 	                            // Display an error message if password is not valid
 	                            $password_err = 'The password you entered was not valid.';
+	                            $_SESSION['msg']=$password_err;
 	                            header("location: login.php");
 	                            exit;
 	                        }
@@ -54,6 +55,7 @@
 	                } else{
 	                    // Display an error message if username doesn't exist
 	                    $username_err = 'No account found with that username.';
+	                    $_SESSION['msg']=$username_err;
 	                    header("location: login.php");
 	                    exit;
 	                }
