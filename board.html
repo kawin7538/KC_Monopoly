@@ -111,10 +111,11 @@
 <table id="main-board">
 	<tr>
 		<td id="p1moneybar" class="moneybarcell" style="transition: all .5s ease;">
-			<div><span id="p1moneyname" style="transition: all .5s ease;">Player 1:</span></div>
-			<div><span id="p1money" style="transition: all .5s ease;">$1500</span></div>
+			<div><span id="p1moneyname" style="transition: all .5s ease;color:white;">Player 1:</span></div>
+			<div><span id="p1money" style="transition: all .5s ease;color:white;">$1500</span></div>
+			<div><img id="p1pic" style="transition: all .5s ease;"></div>
 		</td>
-		<td style="">
+		<td style="border: 0px;">
 	<table id="board">
 		<tr>
 			<td class="cell board-corner" id="cell10"></td>
@@ -126,22 +127,19 @@
 		</tr>
 		<tr>
 			<td class="cell board-left" id="cell9"></td>
-			<td colspan="4" class="board-center"></td>
+			<td colspan="4" rowspan="4" class="board-center" id="cell99"></td>
 			<td class="cell board-right" id="cell16"></td>
 		</tr>
 		<tr>
 			<td class="cell board-left" id="cell8"></td>
-			<td colspan="4" class="board-center"></td>
 			<td class="cell board-right" id="cell17"></td>
 		</tr>
 		<tr>
 			<td class="cell board-left" id="cell7"></td>
-			<td colspan="4" class="board-center"></td>
 			<td class="cell board-right" id="cell18"></td>
 		</tr>
 		<tr>
 			<td class="cell board-left" id="cell6"></td>
-			<td colspan="4" class="board-center"></td>
 			<td class="cell board-right" id="cell19"></td>
 		</tr>
 		<tr>
@@ -155,8 +153,9 @@
 	</table>
 		</td>
 		<td id="p2moneybar" class="moneybarcell" style="transition: all .5s ease;">
-			<div><span id="p2moneyname" style="transition: all .5s ease;">Player 2:</span></div>
-			<div><span id="p2money" style="transition: all .5s ease;">$1500</span></div>
+			<div><span id="p2moneyname" style="transition: all .5s ease;color:white;">Player 2:</span></div>
+			<div><span id="p2money" style="transition: all .5s ease;color:white;">$1500</span></div>
+			<div><img id="p2pic" style="transition: all .5s ease;"></div>
 		</td>
 	</tr>
 </table>
@@ -246,7 +245,7 @@
 		</div>
 
 		<div id="player1input" class="player-input">
-			Player 1: <input type="text" id="player1name" title="Player name" maxlength="16" value="P'Tod" />
+			Player 1: <input type="text" id="player1name" title="Player name" maxlength="16" value="P'Tod" disabled="disabled" />
 			<select id="player1color" title="Player color">
 				<option style="color: aqua;">Aqua</option>
 				<option style="color: black;">Black</option>
@@ -272,7 +271,7 @@
 		</div>
 
 		<div id="player2input" class="player-input">
-			Player 2: <input type="text" id="player2name" title="Player name" maxlength="16" value="P'Phoon" />
+			Player 2: <input type="text" id="player2name" title="Player name" maxlength="16" value="P'Phoon" disabled="disabled" />
 			<select id="player2color" title="Player color">
 				<option style="color: aqua;">Aqua</option>
 				<option style="color: black;">Black</option>

@@ -378,8 +378,7 @@ td {
 }
 
 #stats {
-	max-width: 914px;
-	min-width: 454px;
+	min-width: 860px;
 	font-family: Arial, sans-serif;
 	font-size: 14px;
 	padding: 10px;
@@ -401,7 +400,7 @@ td {
 
 #statswrap {
 	position: absolute;
-	top: 250px;
+	top: 100px;
 	left: 0px;
 	width: 100%;
 	display: none;
@@ -595,7 +594,7 @@ td {
 }
 
 .board-center {
-	width: 300px;
+	width: 396px;
 	border: none;
 	vertical-align: bottom;
 	background-repeat: no-repeat;
@@ -603,28 +602,28 @@ td {
 }
 
 .board-corner {
-	width: 102px;
-	height: 102px;
+	width: 135px;
+	height: 135px;
 }
 
 .board-top {
-	width: 72px;
-	height: 102px;
+	width: 95px;
+	height: 135px;
 }
 
 .board-bottom {
-	width: 72px;
-	height: 102px;
+	width: 95px;
+	height: 135px;
 }
 
 .board-left {
-	width: 102px;
-	height: 72px;
+	width: 135px;
+	height: 95px;
 }
 
 .board-right {
-	width: 102px;
-	height: 72px;
+	width: 135px;
+	height: 95px;
 }
 
 .enlarge {
@@ -667,6 +666,7 @@ td {
 .moneybarcell {
 	width: 83px;
 	min-width: 83px;
+	background-color: rgb(46,26,64);
 }
 
 .moneybararrowcell {
@@ -739,7 +739,7 @@ td {
 	border: 2px solid black;
 	padding: 8px;
 	vertical-align: top;
-	width: 202px;
+	width: 404px;
 	min-width: 115px;
 }
 
@@ -807,7 +807,7 @@ td {
 
 
 	top: -25px;
-	width: 72px;
+	width: 95px;
 
 }
 
@@ -821,13 +821,13 @@ td {
 
 
 	left: 0px;
-	width: 72px;
+	width: 95px;
 }
 
 .board-left .cell-owner {
 	background-image: url("images/vert-bar.png");
 
-	height: 68px;
+	height: 95px;
 	left: -25px;
 
 
@@ -840,7 +840,7 @@ td {
 .board-right .cell-owner {
 	background-image: url("images/vert-bar.png");
 
-	height: 68px;
+	height: 95px;
 	right: -25px;
 
 
@@ -922,7 +922,151 @@ td {
 	width: 276px;
 	border-spacing: 5px;
 }
+
 #manage-modal-content{
 	width: 330px;
 	border-radius: 30px;
 }
+
+#cell0{
+	background-image: url("images/TheCrazyRich/Middle200.png");
+	background-size: 100% 100%;
+}
+
+#cell1{
+	background-image: url("images/TheCrazyRich/peking.png");
+	background-size: 100% 100%;
+}
+
+#cell2{
+	background-image: url("images/TheCrazyRich/taipei.png");
+	background-size: 100% 100%;
+}
+
+#cell3{
+	background-image: url("images/TheCrazyRich/new delhi.png");
+	background-size: 100% 100%;
+}
+
+#cell4{
+	background-image: url("images/TheCrazyRich/seoul.png");
+	background-size: 100% 100%;
+}
+
+#cell5{
+	background-image: url("images/TheCrazyRich/x2.png");
+	background-size: 100% 100%;
+}
+
+#cell6{
+	background-image: url("images/TheCrazyRich/tokyo.png");
+	background-size: 100% 100%;
+}
+
+#cell7{
+	background-image: url("images/TheCrazyRich/singapore.png");
+	background-size: 100% 100%;
+}
+
+#cell8{
+	background-image: url("images/TheCrazyRich/Berlin.png");
+	background-size: 100% 100%;
+}
+
+#cell9{
+	background-image: url("images/TheCrazyRich/moscow.png");
+	background-size: 100% 100%;
+}
+
+#cell10{
+	background-image: url("images/TheCrazyRich/fine.png");
+	background-size: 100% 100%;
+}
+
+#cell11{
+	background-image: url("images/TheCrazyRich/Geneva.png");
+	background-size: 100% 100%;
+}
+
+#cell12{
+	background-image: url("images/TheCrazyRich/Rome.png");
+	background-size: 100% 100%;
+}
+
+#cell13{
+	background-image: url("images/TheCrazyRich/São Paulo.png");
+	background-size: 100% 100%;
+}
+
+#cell14{
+	background-image: url("images/TheCrazyRich/Hawaii.png");
+	background-size: 100% 100%;
+}
+
+#cell15{
+	background-image: url("images/TheCrazyRich/roll.png");
+	background-size: 100% 100%;
+}
+
+#cell16{
+	background-image: url("images/TheCrazyRich/nlondon.png");
+	background-size: 100% 100%;
+}
+
+#cell17{
+	background-image: url("images/TheCrazyRich/nparis.png");
+	background-size: 100% 100%;
+}
+
+#cell18{
+	background-image: url("images/TheCrazyRich/nNew York.png");
+	background-size: 100% 100%;
+}
+
+#cell19{
+	background-image: url("images/TheCrazyRich/bangkok.png");
+	background-size: 100% 100%;
+}
+
+#cell99{
+	background-image: url("images/TheCrazyRich/Middle300.png");
+	background-size: 100% 100%;
+}
+
+#p1moneybar{
+	/*background-image: url("images/TheCrazyRich/p_ tod.png");*/
+	background-size: 375px 375px;
+	background-repeat: no-repeat;
+	background-position: 4px 75px;
+}
+
+#p2moneybar{
+	/*background-image: url("images/TheCrazyRich/p_ phoon.png");*/
+	background-size: 375px 375px;
+	background-repeat: no-repeat;
+	background-position: 4px 75px;
+}
+
+#p1pic{
+	/*background-size: 375px 375px;
+	background-repeat: no-repeat;
+	background-position: 4px 75px;
+	width: 150px;
+	height: 150px;*/
+}
+
+#p2pic{
+	/*background-size: 375px 375px;
+	background-repeat: no-repeat;
+	background-position: 4px 75px;
+	width: 150px;
+	height: 150px;*/
+}
+
+/*#p1moneyname{
+	color: transparent;
+}
+
+#p2moneyname{
+	color: transparent;
+}*/
