@@ -1,7 +1,7 @@
 <?php
 	require("db_config.php");
-	$password_hash=password_hash('admin', PASSWORD_DEFAULT);
 	mysqli_query($link,"TRUNCATE user");
+	$password_hash=password_hash('admin', PASSWORD_DEFAULT);
 	$sql = "INSERT INTO user (username, password) VALUES (?, ?)";
 	if($stmt=mysqli_prepare($link,$sql)){
 		for($i=1;$i<=200;$i++){

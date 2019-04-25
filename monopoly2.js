@@ -1386,6 +1386,16 @@ function updateMoney() {
 		document.getElementById("p" + i + "money").innerHTML = p_i.money;
 		document.getElementById("p" + i + "moneyname").innerHTML = p_i.name;
 	}
+	if(document.getElementById("p1moneyname").innerHTML=="P'Tod"){
+		document.getElementById("p1pic").src = "images/TheCrazyRich/p_ tod.png";
+		document.getElementById("p2pic").src = "images/TheCrazyRich/p_ phoon.png";
+	}
+	else{
+		//document.getElementById("p2moneybar").style.backgroundImage = "url(\"images/TheCrazyRich/p_ tod.png\")";
+		//document.getElementById("p1moneybar").style.backgroundImage = "url(\"images/TheCrazyRich/p_ phoon.png\")";
+		document.getElementById("p1pic").src = "images/TheCrazyRich/p_ phoon.png";
+		document.getElementById("p2pic").src = "images/TheCrazyRich/p_ tod.png";
+	}
 	// show("moneybarrow9"); // Don't remove this line or make the first for-loop stop when i <= 8, because this affects how the table is displayed.
 
 	if (document.getElementById("landed").innerHTML === "") {
@@ -2178,9 +2188,9 @@ function showStats() {
 		}
 		HTML += "<br>money : " + p.money ;
 
-		HTML += "<br><br>Total Assets : " + sum_price;
+		HTML += "<br><br><span style=\"font-size:50px;\">Total Assets : " + sum_price;
 
-		HTML += "</td>";
+		HTML += "</span></td>";
 	}
 	HTML += "</tr></table><div id='titledeed'></div>";
 
@@ -2759,14 +2769,20 @@ function play() {
 	document.getElementById("p2moneybar").style.borderWidth = "2px";
 	document.getElementById("p1moneybar").style.width = "150px";
 	document.getElementById("p2moneybar").style.width = "150px";
-	document.getElementById("p1moneyname").style.fontSize = "12px";
-	document.getElementById("p1money").style.fontSize = "12px";
-	document.getElementById("p2moneyname").style.fontSize = "12px";
-	document.getElementById("p2money").style.fontSize = "12px";
+	document.getElementById("p1moneyname").style.fontSize = "20px";
+	document.getElementById("p1money").style.fontSize = "20px";
+	document.getElementById("p2moneyname").style.fontSize = "20px";
+	document.getElementById("p2money").style.fontSize = "20px";
+	document.getElementById("p1pic").width = "150";
+	document.getElementById("p2pic").width = "150";
+	document.getElementById("p1pic").height = "150";
+	document.getElementById("p2pic").height = "150";
 	document.getElementById("p" + turn + "moneybar").style.borderWidth = "20px";
 	document.getElementById("p" + turn + "moneyname").style.fontSize = "72px";
 	document.getElementById("p" + turn + "money").style.fontSize = "72px";
 	document.getElementById("p" + turn + "moneybar").style.width="350px";
+	document.getElementById("p" + turn + "pic").width = "375";
+	document.getElementById("p" + turn + "pic").height = "375";
 
 	if (!p.human) {
 		if (!p.AI.beforeTurn()) {
@@ -2871,8 +2887,8 @@ function menuitem_onmouseout(element) {
 }*/
 
 window.onload = function() {
-	let el = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
-    el.parentNode.removeChild(el);
+	//let el = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+    //el.parentNode.removeChild(el);
     $.ajax({
 			url: 'truncate_func.php',
 			type: 'POST',

@@ -4,7 +4,7 @@
 
 	define('DB_USERNAME', 'root');
 
-	define('DB_PASSWORD', 'password');
+	define('DB_PASSWORD', 'best7538');
 
 	define('DB_NAME', 'kc_crazy_rich_concert');
 
