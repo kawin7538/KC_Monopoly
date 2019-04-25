@@ -2765,8 +2765,8 @@ function play() {
 
 	//$(".money-bar-arrow").hide();
 	//$("#p" + turn + "arrow").show
-	document.getElementById("p1moneybar").style.borderWidth = "2px";
-	document.getElementById("p2moneybar").style.borderWidth = "2px";
+	document.getElementById("p1moneybar").style.borderWidth = "5px";
+	document.getElementById("p2moneybar").style.borderWidth = "5px";
 	document.getElementById("p1moneybar").style.width = "150px";
 	document.getElementById("p2moneybar").style.width = "150px";
 	document.getElementById("p1moneyname").style.fontSize = "20px";
