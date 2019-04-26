@@ -67,7 +67,7 @@
 						<h2 class="has-text-centered">ใส่จำนวนเงินที่อยากให้ได้เลยจ้า 💵</h2>
 						<div class="field">
 							<div class="control">
-								<input class="input is-large" type="number" required value="<?php echo $_SESSION['score']; ?>" min="0" step="1" max="500">
+								<input name="score" class="input is-large" type="number" required value="<?php echo $_SESSION['score']; ?>" min="0" step="1" max="500">
 							</div>
 							<p class="help">สามารถให้เงินได้ตั้งแต่ 0 - 500 บาท</p>
 						</div>

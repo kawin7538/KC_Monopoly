@@ -32,7 +32,7 @@
 								if($stmt=mysqli_prepare($link,$text)){
 									mysqli_stmt_bind_param($stmt,"si",$username,$score);
 									if(mysqli_stmt_execute($stmt)){
-
+										
 									}
 								}
 		        			}

@@ -53,14 +53,14 @@
           <div class="field">
             <label class="label" for="username">Username</label>
             <div class="control">
-              <input class="input" type="text" id="username" name="username" placeholder="crazyrich00" required>
+              <input class="input" type="text" id="username" name="username" placeholder="crazyrich000" required>
             </div>
           </div>
 
           <div class="field">
             <label for="password" class="label">Password</label>
             <div class="control">
-              <input class="input" type="password" id="password" name="password" placeholder="&bull;&bull;&bull;&bull;" required>
+              <input class="input" type="password" id="password" name="password" placeholder="&bull;&bull;&bull;&bull;&bull;" required>
             </div>
           </div>
           <br>
