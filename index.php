@@ -18,70 +18,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Donation System </title>
-	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<title>Donation System - KMUTT Chorus</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 	<link rel="icon" href="kc_icon.ico">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<link rel="stylesheet" href="slider.css">
-	<script type="text/javascript" src="remove_000.js"></script>
-	<script type="text/javascript" src="slider.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<!-- Code snippet to speed up Google Fonts rendering: googlefonts.3perf.com -->
+	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+	<link rel="preload" href="https://fonts.googleapis.com/css?family=Mitr|Sarabun&amp;subset=thai" as="fetch" crossorigin="anonymous">
+	<script type="text/javascript">
+	!function(e,n,t){"use strict";var o="https://fonts.googleapis.com/css?family=Mitr|Sarabun&amp;subset=thai",r="__3perf_googleFonts_68df8";function c(e){(n.head||n.body).appendChild(e)}function a(){var e=n.createElement("link");e.href=o,e.rel="stylesheet",c(e)}function f(e){if(!n.getElementById(r)){var t=n.createElement("style");t.id=r,c(t)}n.getElementById(r).innerHTML=e}e.FontFace&&e.FontFace.prototype.hasOwnProperty("display")?(t[r]&&f(t[r]),fetch(o).then(function(e){return e.text()}).then(function(e){return e.replace(/@font-face {/g,"@font-face{font-display:swap;")}).then(function(e){return t[r]=e}).then(f).catch(a)):a()}(window,document,localStorage);
+	</script>
+	<!-- End of code snippet for Google Fonts -->
 	<style>
-		.status{
-			color: white;
-			width: 200px;
-			text-align: center;
-			position: relative;
-			top: 0px;
-			left: 0px;
-			font-size:20px;
+		body {
+			background:purple;
+			background-image:url("./images/bg.jpg");
+			background-size:cover;
+			background-position:center center;
+			font-family: 'Sarabun', sans-serif;
 		}
-		.logout-box{
-			background-color:white;
-			color:black;
-			border-radius: 20px;
-			text-align:center;
-			position: relative;
-			width: 100px;
-			height: 40px;
-			font-size: 20px;
-			margin: 10px;
-		}
-		.logout{
-			background-color:white;
-			color:black;
-			text-align:center;
-			position: relative;
+		.content h1, .content h2 {
+			font-family: 'Mitr', sans-serif;
+			font-weight: normal;
 		}
 	</style>
 </head>
 <body>
-<br>
-<div class="status">
-	Sign in as <u><i><?php echo $_SESSION['username'] ?></i></u>
-	<br>
-	<a class="logout" href="logout.php">
-		<div class="logout-box">
-			Logout
+	<div class="hero is-fullheight">
+		<div class="hero-body">
+			<div class="container content">
+				<div class="box">
+					<div class="columns" style="margin:0">
+						<div class="column is-narrow has-text-right is-hidden-tablet">
+							<a class="button is-danger is-outlined" href="logout.php">Logout ❌</a>
+						</div>
+						<div class="column">
+							<h1 style="margin:0">สวัสดีคุณ <?php echo $_SESSION['username'] ?></h1>
+						</div>
+						<div class="column is-narrow has-text-right is-hidden-mobile">
+							<a class="button is-danger is-outlined" href="logout.php">Logout ❌</a>
+						</div>
+					</div>
+					<hr style="margin:.5rem 0 1rem">
+					<form method="post" action="score_process.php">
+						<h2 class="has-text-centered">ใส่จำนวนเงินที่อยากให้ได้เลยจ้า 💵</h2>
+						<div class="field">
+							<div class="control">
+								<input class="input is-large" type="number" required value="<?php echo $_SESSION['score']; ?>" min="0" step="1" max="500">
+							</div>
+							<p class="help">สามารถให้เงินได้ตั้งแต่ 0 - 500 บาท</p>
+						</div>
+						<br>
+						<button class="button is-fullwidth is-success">ให้เงิน ✔</button>
+					</form>
+				</div>
+			</div>
 		</div>
-	</a>
-</div>
-<div class="title">How much did you donate?</div>
-<form method="post" action="score_process.php">
-<div class="container">
-  <div class="range-slider">
-    <span id="rs-bullet" class="rs-label"><?php echo $_SESSION['score']; ?></span>
-    <input name="score" id="rs-range-line" class="rs-range" type="range" value="<?php echo $_SESSION['score']; ?>" min="0" max="500">
-
-  </div>
-
-  <div class="box-minmax">
-    <span>0</span><span>500</span>
-  </div>
-
-</div>
-<div class="submitt"><input class="button" type="submit" value="Submit" onclick="submit();"></div>
-</form>
+	</div>
+	<script>
+		window.addEventListener("onload",function(){
+			var el = document.querySelector('[alt="www.000webhost.com"]').parentNode.parentNode;
+			el.parentNode.removeChild(el);
+		});
+	</script>
 </body>
 </html>
