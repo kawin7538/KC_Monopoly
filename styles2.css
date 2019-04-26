@@ -1,11 +1,13 @@
 @font-face{
 	font-family: "fc lamoon";
-	src: url("fonts/FC Lamoon Regular Ver 1.00.ttf") format("truetype"),
-	url("fonts/FC Lamoon Regular Ver 1.00.otf") format("opentype");
+	src:
+	url("fonts/fc_lamoon.otf") format("opentype"),
+	url("fonts/fc_lamoon.ttf") format("truetype");
 }
 
 body {
-	background: #FFFFFF;
+	/*background: #FFFFFF;*/
+	background: #884dff;
 	margin: 0px;
 	min-width: 1075px;
 	height:750px;
@@ -13,7 +15,7 @@ body {
 
 td {
 	font-size: 22px;
-	font-family: "fc lamoon",arial, sans-serif;
+	font-family: fc lamoon,arial, sans-serif;
 	border: 1px solid black;
 	text-align: center;
 }
@@ -73,6 +75,7 @@ td {
 #board {
 	display: none;
 	border: 2px solid black;
+	background-color: #FFFFFF;
 	border-spacing: 3px;
 	/*margin: 25px;*/
 	/*float: center;*/
