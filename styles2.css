@@ -1,3 +1,9 @@
+@font-face{
+	font-family: "fc lamoon";
+	src: url("fonts/FC Lamoon Regular Ver 1.00.ttf") format("truetype"),
+	url("fonts/FC Lamoon Regular Ver 1.00.otf") format("opentype");
+}
+
 body {
 	background: #FFFFFF;
 	margin: 0px;
@@ -6,8 +12,8 @@ body {
 }
 
 td {
-	font-size: 16px;
-	font-family: arial, sans-serif;
+	font-size: 22px;
+	font-family: "fc lamoon",arial, sans-serif;
 	border: 1px solid black;
 	text-align: center;
 }
@@ -594,7 +600,7 @@ td {
 }
 
 .board-center {
-	width: 396px;
+	width: 432px;
 	border: none;
 	vertical-align: bottom;
 	background-repeat: no-repeat;
@@ -602,28 +608,28 @@ td {
 }
 
 .board-corner {
-	width: 135px;
-	height: 135px;
+	width: 108px;
+	height: 108px;
 }
 
 .board-top {
-	width: 95px;
-	height: 135px;
+	width: 108px;
+	height: 108px;
 }
 
 .board-bottom {
-	width: 95px;
-	height: 135px;
+	width: 108px;
+	height: 108px;
 }
 
 .board-left {
-	width: 135px;
-	height: 95px;
+	width: 108px;
+	height: 108px;
 }
 
 .board-right {
-	width: 135px;
-	height: 95px;
+	width: 108px;
+	height: 108px;
 }
 
 .enlarge {
@@ -765,6 +771,7 @@ td {
 	left: 0px;
 	text-align: center;
 	width: 100%;
+	color:white;
 }
 
 .cell-color{
@@ -807,7 +814,7 @@ td {
 
 
 	top: -25px;
-	width: 95px;
+	width: 108px;
 
 }
 
@@ -821,13 +828,13 @@ td {
 
 
 	left: 0px;
-	width: 95px;
+	width: 108px;
 }
 
 .board-left .cell-owner {
 	background-image: url("images/vert-bar.png");
 
-	height: 95px;
+	height: 108px;
 	left: -25px;
 
 
@@ -840,7 +847,7 @@ td {
 .board-right .cell-owner {
 	background-image: url("images/vert-bar.png");
 
-	height: 95px;
+	height: 108px;
 	right: -25px;
 
 
